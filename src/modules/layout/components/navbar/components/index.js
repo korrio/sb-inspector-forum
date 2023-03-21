@@ -18,7 +18,11 @@ import showToast from '@/common/utils/showToast';
 import ListOptionsMenu from '@/modules/layout/components/navbar/components/listOptionsMenu';
 import style from '@/modules/layout/components/navbar/styles/style.module.scss';
 
+import WalletConnectorButton from '@/common/components/WalletConnector';
+import { useWeb3Context } from '@/common/context';
+
 const NavBarComponent = () => {
+	const { web3Provider, connect, address } = useWeb3Context()
 	const router = useRouter();
 	const { user } = useUser();
 	const [search, setSearch] = useState(router.query?.q || '');
@@ -112,7 +116,7 @@ const NavBarComponent = () => {
 			>
 				<CustomImage
 					className="rounded-circle"
-					src={`${process.env.IMAGES_URL}/${user?.avatar}`}
+					src={`https://variety.com/wp-content/uploads/2021/04/Avatar.jpg`}
 					width={34}
 					height={34}
 					alt={user?.user_name}
@@ -142,7 +146,7 @@ const NavBarComponent = () => {
 	);
 
 	const DropdownLocale = () => (
-		<Dropdown>
+		<Dropdown className='none'>
 			<Dropdown.Toggle as={NavLink} id="dropdown-locale" className="p-2 text-muted">
 				{router.locale === 'vi' ? 'Vietnamese' : 'English'}
 			</Dropdown.Toggle>
@@ -159,22 +163,22 @@ const NavBarComponent = () => {
 
 	return (
 		<>
-			<Navbar collapseOnSelect expand="md" bg="light" variant="light" fixed="top" className="shadow-sm">
+			<Navbar collapseOnSelect expand="md" bg="dark" variant="dark" fixed="top" className="shadow-sm">
 				<div className="container-xl">
 					<Link href="/" passHref>
 						<Navbar.Brand className="d-flex align-items-center me-md-3 me-auto">
 							<CustomImage
-								className="rounded-circle"
-								src={`/images/libeyondea.png`}
-								width={44}
+								className=""
+								src={`http://localhost:3000/_next/image?url=https%3A%2F%2Fsocialbureau.io%2Fwp-content%2Fuploads%2F2021%2F09%2Flogo-1.png&w=640&q=75`}
+								width={90}
 								height={44}
 								alt="Logo"
 								layout="fixed"
 							/>
-							<div className="ms-2 d-none d-sm-block">De4th Zone</div>
+							<div className="ms-2 d-none d-sm-block"></div>
 						</Navbar.Brand>
 					</Link>
-					{user && (
+					{(
 						<div className="d-flex align-items-center order-md-2">
 							{DropdownMenuNoti('')}
 							{DropdownMenuUser('')}
@@ -202,6 +206,21 @@ const NavBarComponent = () => {
 							</form>
 						</Nav>
 						<Nav className="align-items-md-center ms-auto">
+						<Nav.Item className="d-none d-md-block px-2">
+										<Link href="#">
+											<Nav.Link>Background Check</Nav.Link>
+										</Link>
+									</Nav.Item>
+									<Nav.Item className="d-none d-md-block px-2">
+										<Link href="#">
+											<Nav.Link>Report Crime</Nav.Link>
+										</Link>
+									</Nav.Item>
+									<Nav.Item className="d-none d-md-block px-2">
+										<Link href="#">
+											<Nav.Link>Bounty Hunting</Nav.Link>
+										</Link>
+									</Nav.Item>
 							{DropdownLocale()}
 							{user && (
 								<>
@@ -214,16 +233,19 @@ const NavBarComponent = () => {
 							)}
 							{!user && (
 								<>
-									<Nav.Item>
+									<Nav.Item className="d-none">
 										<Link href="/register" passHref>
 											<Nav.Link>Register</Nav.Link>
 										</Link>
 									</Nav.Item>
-									<Nav.Item>
+									<Nav.Item className="d-none">
 										<Link href="/login" passHref>
 											<Nav.Link>Login</Nav.Link>
 										</Link>
 									</Nav.Item>
+									
+											<WalletConnectorButton />
+										
 								</>
 							)}
 						</Nav>
@@ -232,7 +254,7 @@ const NavBarComponent = () => {
 			</Navbar>
 			<Offcanvas show={show} onHide={handleClose} scroll backdrop className={style.offcanvas__custom}>
 				<Offcanvas.Header closeButton className="border-bottom">
-					<Offcanvas.Title>De4th Zone</Offcanvas.Title>
+					<Offcanvas.Title>Social Bureau</Offcanvas.Title>
 				</Offcanvas.Header>
 				<Offcanvas.Body className="d-flex flex-column">
 					<form className="form-inline mb-3" onSubmit={onSearchSubmit}>

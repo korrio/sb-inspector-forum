@@ -8,12 +8,14 @@ import style from '@/modules/layout/components/sidebarLeft/components/listTagFol
 
 const ListTagFollowedComponent = () => {
 	const { user } = useUser();
-	const { data: listTagFollowed } = useSWR(
-		user ? `/tags_followed?offset=0&limit=${process.env.LIMIT_PAGE.LIST_TAG_FOLLOWED}` : null,
-		{
-			revalidateOnFocus: false
-		}
-	);
+	// const { data: listTagFollowed } = useSWR(
+	// 	user ? `/tags_followed?offset=0&limit=${process.env.LIMIT_PAGE.LIST_TAG_FOLLOWED}` : null,
+	// 	{
+	// 		revalidateOnFocus: false
+	// 	}
+	// );
+
+	const { data: listTagFollowed } = {"success":true,"data":[],"meta":{"total":0}}
 
 	return (
 		<>

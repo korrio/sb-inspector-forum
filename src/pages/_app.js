@@ -9,10 +9,12 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { ToastContainer } from 'react-toastify';
 import { SWRConfig } from 'swr';
+import { Web3ContextProvider } from '@/common/context'
 
 import fetcher from '@/common/utils/fetcher';
 import { removeCookie } from '@/common/utils/session';
 import showToast from '@/common/utils/showToast';
+import { Toaster } from 'react-hot-toast'
 
 const TopProgressBar = dynamic(
 	() => {
@@ -27,11 +29,16 @@ const App = ({ Component, pageProps }) => {
 	const router = useRouter();
 
 	return (
+		<Web3ContextProvider>
 		<>
 			<Head>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 			</Head>
 			<TopProgressBar />
+			<Toaster 
+          position="top-center"
+          reverseOrder={false}
+        />
 			<SWRConfig
 				value={{
 					fetcher: fetcher,
@@ -59,6 +66,7 @@ const App = ({ Component, pageProps }) => {
 				/>
 			</SWRConfig>
 		</>
+		</Web3ContextProvider>
 	);
 };
 

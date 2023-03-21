@@ -12,9 +12,9 @@ const NewPostComponent = () => {
 
 	return (
 		<div className="container-xl py-4">
-			{!user ? (
+{/*			{!user ? (
 				<LoadingSpinner />
-			) : (
+			) : ( */}
 				<div className="row">
 					<div className="col-md-9">
 						<div className="d-flex align-items-center mb-3">
@@ -47,7 +47,7 @@ const NewPostComponent = () => {
 						<SideBarRightNewPostComponent />
 					</div>
 				</div>
-			)}
+			{/*)}*/}
 		</div>
 	);
 };

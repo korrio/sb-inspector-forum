@@ -6,9 +6,11 @@ import CustomLink from '@/common/components/CustomLink/components';
 import style from '@/modules/layout/components/sidebarRight/components/listCategory/styles/style.module.scss';
 
 const ListCategoryComponent = () => {
-	const { data: listCategory } = useSWR(`/categories?offset=0&limit=${process.env.LIMIT_PAGE.LIST_CATEGORY}`, {
-		revalidateOnFocus: false
-	});
+	// const { data: listCategory } = useSWR(`/categories?offset=0&limit=${process.env.LIMIT_PAGE.LIST_CATEGORY}`, {
+	// 	revalidateOnFocus: false
+	// });
+
+	const {data:listCategory} = {"success":true,"data":[{"id":1,"title":"Developer","slug":"developer","created_at":"2020-10-25T07:25:04.000000Z","updated_at":"2020-10-25T07:25:04.000000Z","total_posts":20},{"id":2,"title":"Software","slug":"software","created_at":"2020-10-25T07:25:04.000000Z","updated_at":"2020-10-25T07:25:04.000000Z","total_posts":20},{"id":3,"title":"Hacking","slug":"hacking","created_at":"2020-10-25T07:25:04.000000Z","updated_at":"2020-10-25T07:25:04.000000Z","total_posts":10},{"id":4,"title":"Tools","slug":"tools","created_at":"2020-10-25T07:25:04.000000Z","updated_at":"2020-10-25T07:25:04.000000Z","total_posts":16},{"id":5,"title":"Books","slug":"books","created_at":"2020-10-25T07:25:04.000000Z","updated_at":"2020-10-25T07:25:04.000000Z","total_posts":0}],"meta":{"total":5}};
 
 	return (
 		<>

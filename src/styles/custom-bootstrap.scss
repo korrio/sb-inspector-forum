@@ -13,6 +13,8 @@ $enable-negative-margins: true;
 @import '~bootstrap/scss/variables';
 @import '~bootstrap/scss/mixins';
 @import '~bootstrap/scss/utilities';
+@import "~bootstrap/scss/helpers";
+@import "~bootstrap/scss/utilities/api";
 
 // Include any default variable overrides here
 

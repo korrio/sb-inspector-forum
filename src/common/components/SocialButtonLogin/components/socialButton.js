@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SocialLogin from 'react-social-login';
+// import SocialLogin from 'react-social-login';
 
 class SocialButtonComponent extends Component {
 	render() {
@@ -12,4 +12,4 @@ class SocialButtonComponent extends Component {
 	}
 }
 
-export default SocialLogin(SocialButtonComponent);
+export default SocialButtonComponent;

@@ -9,13 +9,13 @@ const FooterComponent = () => {
 				<div className="row">
 					<div className="col-12 col-md-3 mb-4">
 						<CustomImage
-							className="rounded-circle"
-							src={`/images/libeyondea.png`}
-							width={66}
-							height={66}
-							alt="Logo De4th Zone"
+							className="logo"
+							src={`https://socialbureau.io/wp-content/uploads/2021/09/logo-1.png`}
+							width={513}
+							height={249}
+							alt="Social Bureau"
 						/>
-						<small className="d-block text-light">Copyright © Your Website 2020</small>
+						<small className="d-block text-light">Copyright © Social Bureau 2023</small>
 					</div>
 					<div className="col-6 col-md-3 mb-4">
 						<h5 className="text-white">Features</h5>

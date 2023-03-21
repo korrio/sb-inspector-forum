@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://frontend-forum-example.vercel.app
+
+# Sitemaps
+Sitemap: https://frontend-forum-example.vercel.app/sitemap.xml

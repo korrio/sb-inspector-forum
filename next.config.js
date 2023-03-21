@@ -26,7 +26,7 @@ module.exports = (phase) => {
 			return 'RESTURL_SESSIONS:not (isDev,isProd && !isStaging,isProd && isStaging)';
 		})(),
 		IMAGES_URL: (() => {
-			if (isDev) return 'http://localhost:8000/images-local';
+			if (isDev) return 'https://images.theconversation.com/files/500899/original/file-20221214-461-22jr1l.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop&';
 			if (isProd) return 'https://backend-forum-example.herokuapp.com/images';
 			if (isStaging) return 'https://backend-forum-example.herokuapp.com/images';
 			return 'RESTURL_SESSIONS:not (isDev,isProd && !isStaging,isProd && isStaging)';
@@ -49,9 +49,9 @@ module.exports = (phase) => {
 			DEFAULT_IMAGE_AVATAR: 'default_avatar.png'
 		},
 		META: {
-			TITLE: 'Libeyondea Forum',
-			DESCRIPTION: 'A social network for software developers.',
-			TWITTER: '@libeyondea',
+			TITLE: 'Social Bureau Forum',
+			DESCRIPTION: 'A social network for crime reporters and inspectors.',
+			TWITTER: '@socialbureau_',
 			IMAGE: 'libeyondea-background-night.png'
 		}
 	};
@@ -59,12 +59,17 @@ module.exports = (phase) => {
 		env,
 		reactStrictMode: true,
 		images: {
-			domains: ['localhost', 'backend-forum-example.herokuapp.com']
+			domains: ['localhost', 'backend-forum-example.herokuapp.com', 'socialbureau.io','variety.com','theconversation.com','images.theconversation.com']
 		},
 		i18n: {
 			locales: ['en', 'vi'],
 			defaultLocale: 'en',
 			localeDetection: false
-		}
+		},
+		eslint: {
+    // Warning: This allows production builds to successfully complete even if
+    // your project has ESLint errors.
+    ignoreDuringBuilds: true,
+  },
 	};
 };
