@@ -13,6 +13,7 @@ import useUser from '@/common/hooks/useUser';
 import EditProfileButtonComponent from '@/modules/singleUser/components/editProfileButton';
 import FollowUserButtonComponent from '@/modules/singleUser/components/followUserButton';
 import ListPostUserComponent from '@/modules/singleUser/components/listPostUser';
+import timeFormat from '@/common/utils/timeFormat';
 import style from '@/modules/singleUser/styles/style.module.scss';
 
 const SingleUserComponent = ({ singleUser, listPostUser }) => {
@@ -21,7 +22,7 @@ const SingleUserComponent = ({ singleUser, listPostUser }) => {
 		<div className="container-xl py-4">
 			<div className="row">
 				<div className="col-12 mb-4">
-					<div className={`text-left text-sm-center bg-light rounded-3 shadow-sm px-4 pb-4 pt-4 ${style.info__user}`}>
+					<div className={`text-left bg-light rounded-3 shadow-sm px-4 pb-4 pt-4 ${style.info__user} cover-bg`}>
 						<div className={`position-relative mb-2 ${style.avt}`}>
 							<span className="d-inline-flex p-3 rounded-circle">
 								<CustomImage
@@ -61,9 +62,12 @@ const SingleUserComponent = ({ singleUser, listPostUser }) => {
 							)}
 						</div>
 						<h4 className="text-break mb-1">
-							{singleUser.data?.first_name} {singleUser.data?.last_name}
+							@{singleUser.data?.user_name}
 						</h4>
-						<p className="text-break text-secondary mb-2">@{singleUser.data?.user_name}</p>
+						<p className="text-break text-secondary mb-2">Inspector</p>
+						<p className="text-break text-secondary mb-2">0x22f45E683b2574eFe3b2d82642E4176Fa1967c42</p>
+						<p className="text-break text-secondary mb-2">Member since {timeFormat("2023-03-22 03:57:51")}</p>
+						
 						{singleUser.data?.biography && <p className="text-break mb-2">{singleUser.data?.biography}</p>}
 						{user && singleUser.data?.user_name === user?.user_name && (
 							<div>
@@ -85,10 +89,15 @@ const SingleUserComponent = ({ singleUser, listPostUser }) => {
 					</div>
 				</div>
 				<div className="col-lg-4 col-md-4 mb-4 mb-md-0">
+					<h4>Statistics</h4>
 					<ul className="wapper__card list-group rounded-3 shadow-sm">
 						<li className="list-group-item d-flex flex-wrap align-items-center">
 							<GrArticle className="me-1" />
-							<span>{singleUser.data?.total_posts} Posts published</span>
+							<span>{singleUser.data?.total_posts} Cases</span>
+						</li>
+						<li className="list-group-item d-flex flex-wrap align-items-center">
+							<GrArticle className="me-1" />
+							<span>77.80 Score</span>
 						</li>
 						<li className="list-group-item d-flex flex-wrap align-items-center">
 							<FaRegComment className="me-1" />
@@ -102,6 +111,46 @@ const SingleUserComponent = ({ singleUser, listPostUser }) => {
 							<FaHashtag className="me-1" />
 							<span>{singleUser.data?.total_tags_followed} Tags followed</span>
 						</li>
+					</ul>
+					<h4 className="mt-4">Badges</h4>
+					<ul className="wapper__card list-group rounded-3 shadow-sm">
+						<li className="list-group-item d-flex flex-wrap align-items-center">
+							<GrArticle className="me-1" />
+							<span>12 Gold Badges</span>
+						</li>
+						<li className="list-group-item d-flex flex-wrap align-items-center">
+							<GrArticle className="me-1" />
+							<span>37 Silver Badges</span>
+						</li>
+						<li className="list-group-item d-flex flex-wrap align-items-center">
+							<GrArticle className="me-1" />
+							<span>24 Bronze Badges</span>
+						</li>
+						
+					</ul>
+					<h4 className="mt-4">Top 5 Categories</h4>
+					<ul className="wapper__card list-group rounded-3 shadow-sm">
+						<li className="list-group-item d-flex flex-wrap align-items-center">
+							
+							<span>#1 Cryptocurrency</span>
+						</li>
+						<li className="list-group-item d-flex flex-wrap align-items-center">
+				
+							<span>#2 Adulterer</span>
+						</li>
+						<li className="list-group-item d-flex flex-wrap align-items-center">
+						
+							<span>#3 Bycicle</span>
+						</li>
+						<li className="list-group-item d-flex flex-wrap align-items-center">
+							
+							<span>#4 Pets</span>
+						</li>
+						<li className="list-group-item d-flex flex-wrap align-items-center">
+						
+							<span>#5 Car</span>
+						</li>
+						
 					</ul>
 				</div>
 				<div className="col-lg-8 col-md-8">

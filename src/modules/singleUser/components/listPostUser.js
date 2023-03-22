@@ -8,9 +8,9 @@ import PostCardComponent from '@/modules/postCard/components';
 const ListPostUserComponent = ({ listPostUser }) => {
 	return (
 		<>
-			<h4 className="mb-3">Posts published</h4>
+			<h4 className="mb-3">Tasks completed</h4>
 			{isEmpty(listPostUser.data) ? (
-				<EmptyBoxComponent text="Empty posts published" />
+				<EmptyBoxComponent text="Empty posts ListPostUserComponent" />
 			) : (
 				<div className="row row-cols-1 g-3 mb-3">
 					{listPostUser.data?.map((post) => (

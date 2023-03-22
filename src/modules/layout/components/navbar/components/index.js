@@ -124,14 +124,22 @@ const NavBarComponent = () => {
 				/>
 			</Dropdown.Toggle>
 			<Dropdown.Menu align={'end'} className="p-0 dropdown-menu-end">
-				<Link href={`/u/${user?.user_name}`} passHref>
+			<Link href={`/u/korrio`} passHref>
+					<Dropdown.Item>
+						<span className="d-block h6 mb-0">
+							Thananon N.
+						</span>
+						<small className="text-secondary">@korrio</small>
+					</Dropdown.Item>
+				</Link>
+				{/* <Link href={`/u/${user?.user_name}`} passHref>
 					<Dropdown.Item>
 						<span className="d-block h6 mb-0">
 							{user?.first_name} {user?.last_name}
 						</span>
 						<small className="text-secondary">@{user?.user_name}</small>
 					</Dropdown.Item>
-				</Link>
+				</Link> */}
 				<Dropdown.Divider className="m-0" />
 				<Link href={`/dashboard`} passHref>
 					<Dropdown.Item>Dashboard</Dropdown.Item>

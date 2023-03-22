@@ -46,7 +46,7 @@ const PostCardComponent = ({ post }) => {
 						<h5 className="fw-bold mb-0">{post.title}</h5>
 					</CustomLink>
 					<div className="mb-1">
-						<p className="card-text mb-0 text-secondary">{post.excerpt}</p>
+						<p className="card-text mb-0 text-secondary excerpt">{post.excerpt}</p>
 					</div>
 					<div className={`mb-2 ${style.tags}`}>
 						{post.tags.map((tag) => (
@@ -54,7 +54,7 @@ const PostCardComponent = ({ post }) => {
 								href={`/t/${tag.slug}`}
 								key={tag.id}
 								onClick={(e) => e.stopPropagation()}
-								className="p-1 text-decoration-none d-inline-block text-secondary"
+								className="p-1 text-decoration-none d-inline-block tag"
 							>
 								<span className="text-muted">#</span>
 								{tag.slug}
