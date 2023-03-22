@@ -207,17 +207,17 @@ const NavBarComponent = () => {
 						</Nav>
 						<Nav className="align-items-md-center ms-auto">
 						<Nav.Item className="d-none d-md-block px-2">
-										<Link href="#">
+										<Link href="/search" passHref>
 											<Nav.Link>Background Check</Nav.Link>
 										</Link>
 									</Nav.Item>
 									<Nav.Item className="d-none d-md-block px-2">
-										<Link href="#">
+										<Link href="/new" passHref>
 											<Nav.Link>Report Crime</Nav.Link>
 										</Link>
 									</Nav.Item>
 									<Nav.Item className="d-none d-md-block px-2">
-										<Link href="#">
+										<Link href="/new?bounty=1" passHref>
 											<Nav.Link>Bounty Hunting</Nav.Link>
 										</Link>
 									</Nav.Item>

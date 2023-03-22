@@ -11,6 +11,7 @@ import ListUserFollowerComponent from '@/modules/dashboardUser/components/listUs
 
 const DashboardUserComponent = ({ dashboardUser, pid }) => {
 	const { user } = useUser();
+	pid[0] = 'posts';
 	return (
 		<div className="container-xl py-4">
 			{!user ? (

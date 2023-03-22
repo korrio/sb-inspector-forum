@@ -9,9 +9,9 @@ import ListPostMetaComponent from '@/modules/dashboardUser/components/listPostMe
 const ListPostComponent = ({ listPost }) => {
 	return (
 		<>
-			<h4 className="mb-3">Posts ({listPost?.meta?.total})</h4>
+			<h4 className="mb-3">Tasks ({listPost?.meta?.total})</h4>
 			{isEmpty(listPost.data) ? (
-				<EmptyBox text="Empty posts" />
+				<EmptyBox text="Empty post (ListPostComponent)" />
 			) : (
 				<div className="row row-cols-1 g-3 mb-3">
 					{listPost.data.map((post) => (

@@ -9,6 +9,7 @@ import HomeComponent from '@/modules/home/components';
 import LayoutComponent from '@/modules/layout/components';
 
 const Home = ({ listPostPinned, listPost, pid }) => {
+	console.log("listPost",listPost);
 	return (
 		<>
 			<MetaWebsite />
@@ -35,21 +36,22 @@ export async function getServerSideProps({ req, query }) {
 			httpRequest.get({
 				url: '/posts',
 				token: getCookie('token', req),
-				params: {
-					sort_by:
-						pid[0] === 'feed' || !pid[0]
-							? 'feed'
-							: pid[0] === 'latest'
-							? 'published_at'
-							: pid[0] === 'oldest'
-							? 'published_at'
-							: '',
-					sort_direction: pid[0] === 'latest' ? 'desc' : pid[0] === 'oldest' ? 'asc' : 'desc',
-					offset: (pageNumber(query.page) - 1) * process.env.LIMIT_PAGE.LIST_POST_HOME,
-					limit: process.env.LIMIT_PAGE.LIST_POST_HOME
-				}
+				// params: {
+				// 	sort_by:
+				// 		pid[0] === 'feed' || !pid[0]
+				// 			? 'feed'
+				// 			: pid[0] === 'latest'
+				// 			? 'published_at'
+				// 			: pid[0] === 'oldest'
+				// 			? 'published_at'
+				// 			: '',
+				// 	sort_direction: pid[0] === 'latest' ? 'desc' : pid[0] === 'oldest' ? 'asc' : 'desc',
+				// 	offset: (pageNumber(query.page) - 1) * process.env.LIMIT_PAGE.LIST_POST_HOME,
+				// 	limit: process.env.LIMIT_PAGE.LIST_POST_HOME
+				// }
 			})
 		]);
+		console.log("resListPost",resListPost.data);
 		if (resListPostPinned.data.success && resListPost.data.success) {
 			return {
 				props: {

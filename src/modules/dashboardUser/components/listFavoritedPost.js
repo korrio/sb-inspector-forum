@@ -12,7 +12,7 @@ const ListFavoritedPostComponent = ({ listPost }) => {
 		<>
 			<h4 className="mb-3">Posts ({listPost?.meta?.total})</h4>
 			{isEmpty(listPost.data) ? (
-				<EmptyBox text="Empty posts" />
+				<EmptyBox text="Empty posts (ListFavoritedPostComponent)" />
 			) : (
 				<div className="row row-cols-1 g-3 mb-3">
 					{listPost.data.map((post) => (
