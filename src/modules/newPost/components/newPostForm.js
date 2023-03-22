@@ -108,16 +108,34 @@ const NewPostFormComponent = ({ isPreview }) => {
 	};
 
 	return (
+
 		<Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
 			{({ setFieldValue, setFieldTouched, errors: error, touched, values, handleChange }) => (
 				<Form>
+
 					<div className="bg-light rounded-3 shadow-sm">
 						{!isPreview ? (
 							<div className="p-3 p-sm-5">
 								<div className="row">
+									<div className="mb-3 col-md-12 mb-0">
+										<SelectForm label="Category" name="category_id">
+											<option value="">Select category</option>
+											{!listCategory ? (
+												<option value="">Loading...</option>
+											) : isEmpty(listCategory?.data) ? (
+												<option value="">Empty category</option>
+											) : (
+												listCategory?.data?.map((category) => (
+													<option value={category.id} key={category.id}>
+														{category.title}
+													</option>
+												))
+											)}
+										</SelectForm>
+									</div>
 									<div className="mb-3 col-md-12">
 										<ImagePostForm
-											label="Image (.png, .jpg, .jpeg .gif)"
+											label="Evidence image (.png, .jpg, .jpeg .gif)"
 											id="image"
 											name="image"
 											type="file"
@@ -152,22 +170,7 @@ const NewPostFormComponent = ({ isPreview }) => {
 											type="text"
 										/>
 									</div>
-									<div className="mb-3 col-md-12 mb-0">
-										<SelectForm label="Category" name="category_id">
-											<option value="">Select category</option>
-											{!listCategory ? (
-												<option value="">Loading...</option>
-											) : isEmpty(listCategory?.data) ? (
-												<option value="">Empty category</option>
-											) : (
-												listCategory?.data?.map((category) => (
-													<option value={category.id} key={category.id}>
-														{category.title}
-													</option>
-												))
-											)}
-										</SelectForm>
-									</div>
+									
 								</div>
 							</div>
 						) : (

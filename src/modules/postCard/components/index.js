@@ -7,6 +7,12 @@ import timeAgo from '@/common/utils/timeAgo';
 import FavoritePostButtonComponent from '@/modules/postCard/components/favoritePostButton';
 import style from '@/modules/postCard/styles/style.module.scss';
 
+import Link from 'next/link';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavItem from 'react-bootstrap/NavItem';
+import NavLink from 'react-bootstrap/NavLink';
+
 const PostCardComponent = ({ post }) => {
 	return (
 		<div className={`card shadow-sm ${style.post_card}`}>
@@ -56,8 +62,8 @@ const PostCardComponent = ({ post }) => {
 								onClick={(e) => e.stopPropagation()}
 								className="p-1 text-decoration-none d-inline-block tag"
 							>
-								<span className="text-muted">#</span>
-								{tag.slug}
+								<span className="tag">#
+								{tag.slug}</span>
 							</CustomLink>
 						))}
 					</div>
@@ -75,6 +81,15 @@ const PostCardComponent = ({ post }) => {
 							totalFavorited={post.total_favorited}
 							slug={post.slug}
 						/>
+						<CustomLink
+							href={`#`}
+							className="d-flex align-items-center text-decoration-none text-secondary me-2"
+						>
+							<Link href="/new" passHref>
+											<Nav.Link className="btn btn-primary text-white fw-bold"><span className="d-none d-sm-block">Give Rewards</span></Nav.Link>
+										</Link>
+							
+						</CustomLink>
 					</div>
 				</div>
 			</div>

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import gfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw'
 
 import style from '@/common/components/ReactMarkdown/styles/style';
 
@@ -22,7 +23,7 @@ const components = {
 
 const ReactMarkdownComponent = ({ markdown }) => {
 	return (
-		<ReactMarkdown className="markdown-body" remarkPlugins={[gfm]} components={components}>
+		<ReactMarkdown rehypePlugins={[rehypeRaw]} className="markdown-body" remarkPlugins={[gfm]} components={components}>
 			{markdown}
 		</ReactMarkdown>
 	);
