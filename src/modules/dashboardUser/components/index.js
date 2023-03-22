@@ -8,28 +8,30 @@ import ListFollowingTagComponent from '@/modules/dashboardUser/components/listFo
 import ListFollowingUserComponent from '@/modules/dashboardUser/components/listFollowingUser';
 import ListPostComponent from '@/modules/dashboardUser/components/listPost';
 import ListUserFollowerComponent from '@/modules/dashboardUser/components/listUserFollower';
+import CustomImage from '@/common/components/CustomImage/components';
 
 const DashboardUserComponent = ({ dashboardUser, pid }) => {
 	const { user } = useUser();
 	pid[0] = 'posts';
 	return (
 		<div className="container-xl py-4">
-			{!user ? (
+{/*			{!user ? (
 				<LoadingSpinner />
-			) : (
+			) : (*/}
 				<>
+					<CustomImage className="pb-4 img-fluid" src={`/images/stake.png`} width={1320} height={340} alt={'stake_area'} />
 					<h3 className="mb-4 fw-bold">
 						Dashboard »{' '}
 						{!pid[0] || pid[0] === 'posts'
-							? 'Posts'
+							? 'All'
 							: pid[0] === 'favorited_posts'
-							? 'Favorited posts'
+							? 'Dispute'
 							: pid[0] === 'user_followers'
-							? 'Followers'
+							? 'Crime Report'
 							: pid[0] === 'following_users'
-							? 'Following users'
+							? 'Bounty Hunting'
 							: pid[0] === 'following_tags'
-							? 'Following tags'
+							? 'Data Sales'
 							: null}
 					</h3>
 					<div className="row">
@@ -38,27 +40,27 @@ const DashboardUserComponent = ({ dashboardUser, pid }) => {
 								pidTab={pid[0]}
 								items={[
 									{
-										title: 'Posts',
+										title: 'All tasks',
 										slug: 'posts',
 										href: '/dashboard/posts'
 									},
 									{
-										title: 'Favorited posts',
+										title: 'Dispute',
 										slug: 'favorited_posts',
 										href: '/dashboard/favorited_posts'
 									},
 									{
-										title: 'Followers',
+										title: 'Crime Report',
 										slug: 'user_followers',
 										href: '/dashboard/user_followers'
 									},
 									{
-										title: 'Following users',
+										title: 'Bounty Hunting',
 										slug: 'following_users',
 										href: '/dashboard/following_users'
 									},
 									{
-										title: 'Following tags',
+										title: 'Data Sales',
 										slug: 'following_tags',
 										href: '/dashboard/following_tags'
 									}
@@ -74,7 +76,7 @@ const DashboardUserComponent = ({ dashboardUser, pid }) => {
 						</div>
 					</div>
 				</>
-			)}
+			{/* )} */}
 		</div>
 	);
 };

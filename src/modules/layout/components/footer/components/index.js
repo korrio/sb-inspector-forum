@@ -11,8 +11,8 @@ const FooterComponent = () => {
 						<CustomImage
 							className="logo"
 							src={`https://socialbureau.io/wp-content/uploads/2021/09/logo-1.png`}
-							width={513}
-							height={249}
+							width={260}
+							height={120}
 							alt="Social Bureau"
 						/>
 						<small className="d-block text-light">Copyright © Social Bureau 2023</small>
@@ -22,32 +22,32 @@ const FooterComponent = () => {
 						<ul className="list-unstyled text-small mb-0">
 							<li>
 								<a className="text-secondary text-decoration-none" href="/">
-									Cool stuff
+									Background Check
 								</a>
 							</li>
 							<li>
 								<a className="text-secondary text-decoration-none" href="/">
-									Random feature
+									Crime Report
 								</a>
 							</li>
 							<li>
 								<a className="text-secondary text-decoration-none" href="/">
-									Team feature
+									Bounty Hunting
 								</a>
 							</li>
 							<li>
 								<a className="text-secondary text-decoration-none" href="/">
-									Stuff for developers
+									Quality Votes
 								</a>
 							</li>
 							<li>
 								<a className="text-secondary text-decoration-none" href="/">
-									Another one
+									Information Scoring
 								</a>
 							</li>
 							<li>
 								<a className="text-secondary text-decoration-none" href="/">
-									Last time
+									Reliability Score
 								</a>
 							</li>
 						</ul>

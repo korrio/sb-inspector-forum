@@ -7,7 +7,6 @@ import Pagination from '@/common/components/Pagination/components';
 import PostCardComponent from '@/modules/postCard/components';
 
 const ListPostComponent = ({ listPost }) => {
-	console.log("listPost",listPost);
 	return (
 		<>
 			{!listPost ? (
