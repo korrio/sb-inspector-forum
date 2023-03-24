@@ -12,9 +12,10 @@ module.exports = (phase) => {
 
 	const env = {
 		WEBSITE_URL: (() => {
-			if (isDev) return 'http://localhost:3000';
+			// if (isDev) return 'http://localhost:3000';
+			if (isDev) return 'https://api.socialbureau.io';
 			if (isProd) {
-				return 'https://frontend-forum-example.vercel.app';
+				return 'https://api.socialbureau.io';
 			}
 			if (isStaging) return 'https://frontend-forum-example.vercel.app';
 			return 'RESTURL_SPEAKERS:not (isDev,isProd && !isStaging,isProd && isStaging)';
