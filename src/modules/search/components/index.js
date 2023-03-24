@@ -19,8 +19,11 @@ const SearchComponent = () => {
     const type = query?.type || 'post';
     const sort = query?.sort === 'latest' ? 'desc' : query?.sort === 'oldest' ? 'asc' : 'desc';
 
+	console.log("user",user);
+    const url = `/search?offset=0&limit=${process.env.LIMIT_PAGE.LIST_POST_HOME}&search_fields=${q}&type=${type}&sort_direction=${sort}`;
+    console.log("search_url",url);
     const { data: listSearch, error } = useSWR(
-    	`/search?offset=0&limit=${process.env.LIMIT_PAGE.LIST_POST_HOME}&search_fields=${q}&type=${type}&sort_direction=${sort}`,
+    	`${url}`,
     	{
     		revalidateOnFocus: false
     	}
@@ -36,17 +39,17 @@ const SearchComponent = () => {
 						pidTab={type}
 						items={[
 							{
-								title: 'Posts',
+								title: 'Tasks',
 								slug: 'post',
 								href: `/search?q=${q}&type=post`
 							},
 							{
-								title: 'Users',
+								title: 'People',
 								slug: 'user',
 								href: `/search?q=${q}&type=user`
 							},
 							{
-								title: 'Comments',
+								title: 'Data',
 								slug: 'comment',
 								href: `/search?q=${q}&type=comment`
 							},
@@ -57,7 +60,7 @@ const SearchComponent = () => {
 							},
 							user
 								? {
-										title: 'My posts',
+										title: 'My tasks',
 										slug: 'my_post',
 										href: `/search?q=${q}&type=my_post`
 								  }
@@ -71,6 +74,16 @@ const SearchComponent = () => {
 							<TabHorizontalComponent
 								pidTab={query?.sort}
 								items={[
+									{
+										title: 'Relavance',
+										slug: 'relavance',
+										href: `/search?q=${q}&type=${type}&sort=relavance`
+									},
+									{
+										title: 'Score',
+										slug: 'score',
+										href: `/search?q=${q}&type=${type}&sort=score`
+									},
 									{
 										title: 'Latest',
 										slug: 'latest',
