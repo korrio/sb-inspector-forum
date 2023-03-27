@@ -1,17 +1,10 @@
 <p align="center">
-    <a href="https://github.com/libeyondea/frontend-forum-example/issues"><img alt="GitHub issues"
-            src="https://img.shields.io/github/issues/libeyondea/frontend-forum-example"></a>
-    <a href="https://github.com/libeyondea/frontend-forum-example/issues"><img alt="GitHub closed issues"
-            src="https://img.shields.io/github/issues-closed/libeyondea/frontend-forum-example?color=red"></a>
-    <a href="https://github.com/libeyondea/frontend-forum-example/network"><img alt="GitHub forks"
-            src="https://img.shields.io/github/forks/libeyondea/frontend-forum-example"></a>
-    <a href="https://github.com/libeyondea/frontend-forum-example/stargazers"><img alt="GitHub stars"
-            src="https://img.shields.io/github/stars/libeyondea/frontend-forum-example"></a>
-    <a href="https://github.com/libeyondea/frontend-forum-example">
-        <img alt="GitHub package.json version"
-            src="https://img.shields.io/github/package-json/v/libeyondea/frontend-forum-example"></a>
-    <a href="https://github.com/libeyondea/frontend-forum-example/blob/main/LICENSE"><img alt="GitHub license"
-            src="https://img.shields.io/github/license/libeyondea/frontend-forum-example"></a>
+<img alt="NodeJS" src="https://img.shields.io/badge/node.js%20-%2343853D.svg?&style=for-the-badge&logo=node.js&logoColor=white"/>
+<img alt="JavaScript" src="https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/>
+<img alt="Next JS" src="https://img.shields.io/badge/next%20js%20-%23000000.svg?&style=for-the-badge&logo=next.js&logoColor=white"/>
+<img alt="Vercel" src="https://img.shields.io/badge/vercel%20-%23000000.svg?&style=for-the-badge&logo=vercel&logoColor=white"/>
+<img alt="Dev.to blog" src="https://img.shields.io/badge/dev.to-0A0A0A?style=for-the-badge&logo=dev.to&logoColor=white" />
+<img alt="Figma" src="https://img.shields.io/badge/figma%20-%23F24E1E.svg?&style=for-the-badge&logo=figma&logoColor=white"/>
 </p>
 <br />
 <p align="center">
