@@ -7,18 +7,18 @@
 <img alt="Figma" src="https://img.shields.io/badge/figma%20-%23F24E1E.svg?&style=for-the-badge&logo=figma&logoColor=white"/>
 </p>
 <br />
+<p align="center"><img src="https://socialbureau.io/wp-content/uploads/2021/09/logo-1.png" alt='frontend-forum-example' width="33%"/></p>
+<h3 align="center">Social Bureau Insepctor Forum</h3>
 <p align="center">
-	<h3 align="center">Frontend Forum Examples</h3>
-	<p align="center">
-		<a href="https://github.com/libeyondea/frontend-forum-example"><strong>Explore the docs »</strong></a>
-		<br />
-		<a href="https://frontend-forum-example.vercel.app" target="_blank" rel="noopener noreferrer">View Demo</a>
+	<a href="https://github.com/libeyondea/frontend-forum-example"><strong>Explore the docs »</strong></a>
+	<br />
+	<a href="https://frontend-forum-example.vercel.app" target="_blank" rel="noopener noreferrer">View Demo</a>
+	·
+	<a href="https://github.com/libeyondea/frontend-forum-example/issues">Report Bug</a>
 		·
-		<a href="https://github.com/libeyondea/frontend-forum-example/issues">Report Bug</a>
-		·
-		<a href="https://github.com/libeyondea/frontend-forum-example/issues">Request Feature</a>
-	</p>
+	<a href="https://github.com/libeyondea/frontend-forum-example/issues">Request Feature</a>
 </p>
+
 
 ## Table of Contents
 
