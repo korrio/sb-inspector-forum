@@ -37,7 +37,7 @@
 ## About The Project
 
 <p align="center">
-	<img src="https://i.imgur.com/tSE6EmH.png" alt='frontend-forum-example' width="66%"/>
+	<img src="https://i.imgur.com/06XvYxol.png" alt='frontend-forum-example' width="66%"/>
 <p>
 
 **Libraries used in the project**
