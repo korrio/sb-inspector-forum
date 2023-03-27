@@ -85,7 +85,7 @@ const PostCardComponent = ({ post }) => {
 							href={`#`}
 							className="d-flex align-items-center text-decoration-none text-secondary me-2"
 						>
-							<Link href="/new" passHref>
+							<Link href="#" passHref>
 											<Nav.Link className="btn btn-primary text-white fw-bold"><span className="d-none d-sm-block">Give Rewards</span></Nav.Link>
 										</Link>
 							

@@ -1,3 +1,5 @@
+import 'react-dropzone-uploader/dist/styles.css'
+
 import { Form, Formik } from 'formik';
 import { isEmpty } from 'lodash';
 import { useRouter } from 'next/router';
@@ -7,6 +9,7 @@ import * as Yup from 'yup';
 
 import CustomImage from '@/common/components/CustomImage/components';
 import ImagePostForm from '@/common/components/ImagePostForm/components';
+import FileUploadMultiple from '@/common/components/FileUploadMultiple/components';
 import InputForm from '@/common/components/InputForm/components';
 import ReactMarkdownComponent from '@/common/components/ReactMarkdown/components';
 import SelectForm from '@/common/components/SelectForm/components';
@@ -15,6 +18,20 @@ import TextForm from '@/common/components/TextForm/components';
 import httpRequest from '@/common/utils/httpRequest';
 import { getCookie } from '@/common/utils/session';
 import showToast from '@/common/utils/showToast';
+
+// import Dropzone from 'react-dropzone-uploader'
+
+import Thumb from "@/common/components/ImagePostForm/components/thumb";
+import MyUploader from "@/common/components/ImagePostForm/components/MyUploader";
+
+const dropzoneStyle = {
+  width: "100%",
+  height: "auto",
+  borderWidth: 2,
+  borderColor: "rgb(102, 102, 102)",
+  borderStyle: "dashed",
+  borderRadius: 5,
+}
 
 const NewPostFormComponent = ({ isPreview }) => {
 	const router = useRouter();
@@ -33,7 +50,8 @@ const NewPostFormComponent = ({ isPreview }) => {
 		title: '',
 		content: '',
 		category_id: '',
-		image: null
+		image: null,
+		files: [],
 	};
 	const validationSchema = Yup.object({
 		title: Yup.string().required('Title is required').max(150, 'Title is maximum 128 characters'),
@@ -60,7 +78,12 @@ const NewPostFormComponent = ({ isPreview }) => {
 					tags: JSON.stringify(tags)
 				},
 				files: {
-					image: values.image
+					// image: values.image
+					image: values.files.map(file => ({
+                fileName: file.name,
+                type: file.type,
+                size: `${file.size} bytes`
+              }))
 				}
 			});
 			if (response.data.success) {
@@ -133,22 +156,7 @@ const NewPostFormComponent = ({ isPreview }) => {
 											)}
 										</SelectForm>
 									</div>
-									<div className="mb-3 col-md-12">
-										<ImagePostForm
-											label="Evidence image (.png, .jpg, .jpeg .gif)"
-											id="image"
-											name="image"
-											type="file"
-											accept=".png, .jpg, .jpeg .gif"
-											onChange={(e) => onChangeAvatar(e, setFieldValue)}
-											onBlur={(e) => onBlurAvatar(e, setFieldTouched)}
-											error={error.image}
-											touched={touched.image}
-											imageSrc={loadImg}
-											imagAlt={`Image`}
-											removeImage={() => onChangeRemoveImage(setFieldValue)}
-										/>
-									</div>
+									
 									<div className="mb-3 col-md-12">
 										<InputForm label="Title" placeholder="Enter title" id="title" name="title" type="text" />
 									</div>
@@ -169,6 +177,23 @@ const NewPostFormComponent = ({ isPreview }) => {
 											name="content"
 											type="text"
 										/>
+									</div>
+									<div className="mb-3 col-md-12">
+										<MyUploader />
+										{/* <ImagePostForm
+											label="Evidence image (.png, .jpg, .jpeg .gif)"
+											id="image"
+											name="image"
+											type="file"
+											accept=".png, .jpg, .jpeg .gif"
+											onChange={(e) => onChangeAvatar(e, setFieldValue)}
+											onBlur={(e) => onBlurAvatar(e, setFieldTouched)}
+											error={error.image}
+											touched={touched.image}
+											imageSrc={loadImg}
+											imagAlt={`Image`}
+											removeImage={() => onChangeRemoveImage(setFieldValue)}
+										/> */}
 									</div>
 									
 								</div>

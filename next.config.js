@@ -12,8 +12,8 @@ module.exports = (phase) => {
 
 	const env = {
 		WEBSITE_URL: (() => {
-			// if (isDev) return 'http://localhost:3000';
-			if (isDev) return 'https://api.socialbureau.io';
+			if (isDev) return 'http://localhost:3000';
+			// if (isDev) return 'https://api.socialbureau.io';
 			if (isProd) {
 				return 'https://api.socialbureau.io';
 			}
@@ -21,7 +21,8 @@ module.exports = (phase) => {
 			return 'RESTURL_SPEAKERS:not (isDev,isProd && !isStaging,isProd && isStaging)';
 		})(),
 		API_URL: (() => {
-			if (isDev) return 'http://localhost:8000/api';
+			// if (isDev) return 'http://localhost:8000/api';
+			if (isDev) return 'https://api.socialbureau.io/api';
 			if (isProd) return 'https://backend-forum-example.herokuapp.com/api';
 			if (isStaging) return 'https://backend-forum-example.herokuapp.com/api';
 			return 'RESTURL_SESSIONS:not (isDev,isProd && !isStaging,isProd && isStaging)';
