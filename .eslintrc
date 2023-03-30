@@ -22,46 +22,10 @@
 		"simple-import-sort"
 	],
 	"extends": [
-		"eslint:recommended",
 		"next",
-		"next/core-web-vitals",
-		"plugin:prettier/recommended"
 	],
 	"rules": {
-		"prettier/prettier": [
-			"error",
-			{
-				"endOfLine": "auto",
-				"singleQuote": true,
-				"trailingComma": "none",
-				"useTabs": true,
-				"printWidth": 120
-			},
-			{
-				"usePrettierrc": true
-			}
-		],
-		"react/react-in-jsx-scope": "off",
-		"jsx-a11y/anchor-is-valid": [
-			"error",
-			{
-				"components": [
-					"Link"
-				],
-				"specialLink": [
-					"hrefLeft",
-					"hrefRight"
-				],
-				"aspects": [
-					"invalidHref",
-					"preferButton"
-				]
-			}
-		],
-		"simple-import-sort/imports": "warn",
-		"simple-import-sort/exports": "warn",
-		"react/prop-types": "off",
-		"react-hooks/rules-of-hooks": "error",
-		"react-hooks/exhaustive-deps": "warn"
-	}
+    "react/no-unescaped-entities": "off",
+    "@next/next/no-page-custom-font": "off"
+  }
 }
