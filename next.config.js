@@ -14,7 +14,7 @@ module.exports = (phase) => {
 		WEBSITE_URL: (() => {
 			if (isDev) return 'http://localhost:3000';
 			if (isProd) {
-				return 'https://sb-forum-frontend.vercel.app';
+				return 'https://sb-inspector-forum-korrio.vercel.app/';
 			}
 			if (isStaging) return 'https://sb-forum-frontend.vercel.app';
 			return 'RESTURL_SPEAKERS:not (isDev,isProd && !isStaging,isProd && isStaging)';

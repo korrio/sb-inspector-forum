@@ -72,7 +72,7 @@ const NavBarComponent = () => {
 			>
 				<FaRegBell className="h3 mb-0" />
 				<span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-					+99 <span className="visually-hidden">unread messages</span>
+					+9 <span className="visually-hidden">unread messages</span>
 				</span>
 			</Dropdown.Toggle>
 			<Dropdown.Menu align="end" className={`p-0 dropdown-menu-end overflow-auto ${style.noti__dropdown__menu}`}>
@@ -125,22 +125,22 @@ const NavBarComponent = () => {
 				/>
 			</Dropdown.Toggle>
 			<Dropdown.Menu align={'end'} className="p-0 dropdown-menu-end">
-			<Link href={`/u/korrio`} passHref>
+{/*				<Link href={`/u/korrio`} passHref>
 					<Dropdown.Item>
 						<span className="d-block h6 mb-0">
 							Thananon N.
 						</span>
 						<small className="text-secondary">@korrio</small>
 					</Dropdown.Item>
-				</Link>
-				{/* <Link href={`/u/${user?.user_name}`} passHref>
+				</Link>*/}
+				<Link href={`/u/${user?.user_name}`} passHref>
 					<Dropdown.Item>
 						<span className="d-block h6 mb-0">
 							{user?.first_name} {user?.last_name}
 						</span>
 						<small className="text-secondary">@{user?.user_name}</small>
 					</Dropdown.Item>
-				</Link> */}
+				</Link>
 				<Dropdown.Divider className="m-0" />
 				<Link href={`/dashboard`} passHref>
 					<Dropdown.Item>Dashboard</Dropdown.Item>
@@ -148,6 +148,7 @@ const NavBarComponent = () => {
 				<Link href="/new" passHref>
 					<Dropdown.Item>New Post</Dropdown.Item>
 				</Link>
+
 				<Dropdown.Divider className="m-0" />
 				<Dropdown.Item onClick={onLogoutClick}>Logout</Dropdown.Item>
 			</Dropdown.Menu>
@@ -163,8 +164,8 @@ const NavBarComponent = () => {
 				<Link href={router.asPath} locale="en" passHref>
 					<Dropdown.Item>English</Dropdown.Item>
 				</Link>
-				<Link href={router.asPath} locale="vi" passHref>
-					<Dropdown.Item>Vietnamese</Dropdown.Item>
+				<Link href={router.asPath} locale="th" passHref>
+					<Dropdown.Item>Thai</Dropdown.Item>
 				</Link>
 			</Dropdown.Menu>
 		</Dropdown>
@@ -187,7 +188,7 @@ const NavBarComponent = () => {
 							<div className="ms-2 d-none d-sm-block"></div>
 						</Navbar.Brand>
 					</Link>
-					{(
+					{user && (
 						<div className="d-flex align-items-center order-md-2">
 							{DropdownMenuNoti('')}
 							{DropdownMenuUser('')}
@@ -233,11 +234,13 @@ const NavBarComponent = () => {
 							{DropdownLocale()}
 							{user && (
 								<>
+																				
 									<Nav.Item className="d-none d-md-block px-2">
 										<Link href="/new" passHref>
-											<Nav.Link className="btn btn-primary text-white fw-bold">New Post</Nav.Link>
+											<Nav.Link className="btn btn-primary text-white fw-bold">Report Crime</Nav.Link>
 										</Link>
 									</Nav.Item>
+									<WalletConnectorButton />
 								</>
 							)}
 							{!user && (
@@ -253,7 +256,7 @@ const NavBarComponent = () => {
 										</Link>
 									</Nav.Item>
 									
-											<WalletConnectorButton />
+
 										
 								</>
 							)}
