@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import React, { useState } from 'react';
 
 const shimmer = (w, h) => `
 	<svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -16,9 +17,10 @@ const shimmer = (w, h) => `
 
 const toBase64 = (str) => (typeof window === 'undefined' ? Buffer.from(str).toString('base64') : window.btoa(str));
 
-const CustomImageComponent = ({ src, alt, className, isBlur = false, ...props }) =>
-	props.width <= 40 || props.height <= 40 || !isBlur ? (
-		<Image {...props} src={src} alt={alt} className={className} />
+const CustomImageComponent = ({ src, alt, className, isBlur = false, ...props }) => {
+	const [imgSrc, setImgSrc] = useState(src);
+	return (props.width <= 40 || props.height <= 40 || !isBlur) ? (
+		<Image {...props} src={src} alt={alt} className={className} onError={() => setImgSrc('/images/image-error.png')} />
 	) : (
 		<Image
 			{...props}
@@ -27,7 +29,10 @@ const CustomImageComponent = ({ src, alt, className, isBlur = false, ...props })
 			className={className}
 			placeholder="blur"
 			blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(props.width, props.height))}`}
+			onError={() => setImgSrc('/images/image-error.png')}
 		/>
 	);
+}
+	
 
 export default CustomImageComponent;

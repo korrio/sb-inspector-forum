@@ -10,6 +10,7 @@ import PostTagListComponent from '@/modules/singlePost/components/postTagList';
 import SideBarRightUserComponent from '@/modules/singlePost/components/sidebarRightUser/components';
 
 const SinglePostComponent = ({ singlePost, listPostUser, listComment }) => {
+
 	return (
 		<div className="container-xl py-4">
 			<div className="row">
@@ -38,6 +39,7 @@ const SinglePostComponent = ({ singlePost, listPostUser, listComment }) => {
 							<div className="my-5">
 								<ReactMarkdownComponent markdown={singlePost.data?.content} />
 							</div>
+							
 							<PostFooterComponent
 								favorited={singlePost.data.favorited}
 								totalFavorited={singlePost.data.total_favorited}

@@ -5,6 +5,7 @@ export const ChainId = {
     OPTIMISM: 10,
     RINKEBY: 4,
     BSC_MAINNET: 56,
+    BSC_TESTNET: 97
 }
 
 export const SUPPORTED_CHAINS = {
@@ -71,6 +72,22 @@ export const SUPPORTED_CHAINS = {
             contractAddress: '',
             balance: '',
         },
+    },
+    [ChainId.BSC_TESTNET]: {
+        name: 'BSC Testnet',
+        short_name: 'bsc-testnet',
+        chain: 'smartchain',
+        network: 'mainnet',
+        chain_id: 97,
+        network_id: 97,
+        rpc_url: 'https://bsc-dataseed1.defibit.io/',
+        native_currency: {
+            symbol: 'tBNB',
+            name: 'tBNB',
+            decimals: '18',
+            contractAddress: '',
+            balance: '',
+        },
     }
 }
 
@@ -83,6 +100,7 @@ export const CONTRACTS = {
             [ChainId.OPTIMISM]: "",
             [ChainId.RINKEBY]: "",
             [ChainId.BSC_MAINNET]: "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+            [ChainId.BSC_TESTNET]: "0x3dd1289157f2f298dde5ae42adc703532aa78478",
         },
         abi: ERC20Abi,
     },
@@ -92,6 +110,7 @@ export const CONTRACTS = {
             [ChainId.OPTIMISM]: "",
             [ChainId.RINKEBY]: "",
             [ChainId.BSC_MAINNET]: "0x5e7d3c2045c914316f26c1f5ad35c16aa4c92acf",
+            [ChainId.BSC_TESTNET]: "0x3dd1289157f2f298dde5ae42adc703532aa78478",
         },
         abi: ERC20Abi,
     },
@@ -101,6 +120,7 @@ export const CONTRACTS = {
             [ChainId.OPTIMISM]: "",
             [ChainId.RINKEBY]: "0x01BE23585060835E02B77ef475b0Cc51aA1e0709",
             [ChainId.BSC_MAINNET]: "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+            [ChainId.BSC_TESTNET]: "0x3dd1289157f2f298dde5ae42adc703532aa78478",
         },
         abi: ERC20Abi,
     },
@@ -110,6 +130,7 @@ export const CONTRACTS = {
             [ChainId.OPTIMISM]: "",
             [ChainId.RINKEBY]: "",
             [ChainId.BSC_MAINNET]: "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+            [ChainId.BSC_TESTNET]: "0x3dd1289157f2f298dde5ae42adc703532aa78478",
         },
         abi: ERC20Abi,
     }
