@@ -15,22 +15,22 @@ module.exports = (phase) => {
 		WEBSITE_URL: (() => {
 			if (isDev) return 'http://localhost:3000';
 			if (isProd) {
-				return 'https://sb-inspector-forum-korrio.vercel.app';
+				return 'https://sb-inspector-forum.vercel.app';
 			}
-			if (isStaging) return 'https://sb-inspector-forum-korrio.vercel.app';
-			return 'RESTURL_SPEAKERS:not (isDev,isProd && !isStaging,isProd && isStaging)';
+			return 'https://sb-inspector-forum.vercel.app';
+			// return 'RESTURL_SPEAKERS:not (isDev,isProd && !isStaging,isProd && isStaging)';
 		})(),
 		API_URL: (() => {
 			if (isDev) return 'https://api.socialbureau.io/api';
 			if (isProd) return 'https://api.socialbureau.io/api';
-			if (isStaging) return 'https://api.socialbureau.io/api';
-			return 'RESTURL_SESSIONS:not (isDev,isProd && !isStaging,isProd && isStaging)';
+			return 'https://api.socialbureau.io/api';
+			// return 'RESTURL_SESSIONS:not (isDev,isProd && !isStaging,isProd && isStaging)';
 		})(),
 		IMAGES_URL: (() => {
 			if (isDev) return 'https://cdn.socialbureau.io/images';
 			if (isProd) return 'https://cdn.socialbureau.io/images';
-			if (isStaging) return 'https://cdn.socialbureau.io/images';
-			return 'RESTURL_SESSIONS:not (isDev,isProd && !isStaging,isProd && isStaging)';
+			return 'https://cdn.socialbureau.io/images';
+			// return 'RESTURL_SESSIONS:not (isDev,isProd && !isStaging,isProd && isStaging)';
 		})(),
 		LIMIT_PAGE: {
 			LIST_POST_HOME: 10,
