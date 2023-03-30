@@ -9,7 +9,6 @@ import HomeComponent from '@/modules/home/components';
 import LayoutComponent from '@/modules/layout/components';
 
 const Home = ({ listPostPinned, listPost, pid }) => {
-	console.log("listPost",listPost);
 	return (
 		<>
 			<MetaWebsite />
@@ -23,11 +22,11 @@ const Home = ({ listPostPinned, listPost, pid }) => {
 export async function getServerSideProps({ req, query }) {
 	try {
 		const pid = parseArray(query.pid);
-		// if (pid.length > 1) {
-		// 	return {
-		// 		notFound: true
-		// 	};
-		// }
+		if (pid.length > 1) {
+			return {
+				notFound: true
+			};
+		}
 		const [resListPostPinned, resListPost] = await Promise.all([
 			httpRequest.get({
 				url: `/posts_pinned`,
@@ -51,7 +50,6 @@ export async function getServerSideProps({ req, query }) {
 				}
 			})
 		]);
-		console.log("resListPost",resListPost.data);
 		if (resListPostPinned.data.success && resListPost.data.success) {
 			return {
 				props: {
