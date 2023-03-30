@@ -23,11 +23,11 @@ const Home = ({ listPostPinned, listPost, pid }) => {
 export async function getServerSideProps({ req, query }) {
 	try {
 		const pid = parseArray(query.pid);
-		if (pid.length > 1) {
-			return {
-				notFound: true
-			};
-		}
+		// if (pid.length > 1) {
+		// 	return {
+		// 		notFound: true
+		// 	};
+		// }
 		const [resListPostPinned, resListPost] = await Promise.all([
 			httpRequest.get({
 				url: `/posts_pinned`,
