@@ -59,6 +59,7 @@ module.exports = (phase) => {
 	return {
 		env,
 		reactStrictMode: true,
+		trailingSlash: true,
 		images: {
 			domains: ['localhost', 'api.socialbureau.io','socialbureau.io']
 		},
