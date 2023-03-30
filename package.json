@@ -1,7 +1,7 @@
 {
 	"name": "frontend-forum-example",
 	"version": "1.4.1",
-	"author": "de4th-zone",
+	"author": "socialbureau",
 	"license": "MIT",
 	"private": true,
 	"scripts": {
