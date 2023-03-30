@@ -27,9 +27,9 @@ module.exports = (phase) => {
 			return 'RESTURL_SESSIONS:not (isDev,isProd && !isStaging,isProd && isStaging)';
 		})(),
 		IMAGES_URL: (() => {
-			if (isDev) return 'https://api.socialbureau.io/images-local';
-			if (isProd) return 'https://api.socialbureau.io/images';
-			if (isStaging) return 'https://api.socialbureau.io/images';
+			if (isDev) return 'https://cdn.socialbureau.io/images';
+			if (isProd) return 'https://cdn.socialbureau.io/images';
+			if (isStaging) return 'https://cdn.socialbureau.io/images';
 			return 'RESTURL_SESSIONS:not (isDev,isProd && !isStaging,isProd && isStaging)';
 		})(),
 		LIMIT_PAGE: {
@@ -61,7 +61,7 @@ module.exports = (phase) => {
 		reactStrictMode: true,
 		trailingSlash: true,
 		images: {
-			domains: ['localhost', 'api.socialbureau.io','socialbureau.io']
+			domains: ['localhost', 'api.socialbureau.io','socialbureau.io','cdn.socialbureau.io']
 		},
 		i18n: {
 			locales: ['en', 'th'],

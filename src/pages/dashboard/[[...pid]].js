@@ -28,16 +28,13 @@ export async function getServerSideProps({ req, query }) {
 			};
 		}
 		const resDashboardUser = await httpRequest.get({
-			// url: `/dashboard/${pid[0] || 'posts'}`,
-			url: `/dashboard/posts`,
+			url: `/dashboard/${pid[0] || 'posts'}`,
 			token: getCookie('token', req),
 			params: {
 				offset: (pageNumber(query.page) - 1) * process.env.LIMIT_PAGE.LIST_POST_HOME,
 				limit: process.env.LIMIT_PAGE.LIST_POST_HOME
 			}
 		});
-		console.log('url',`/dashboard/${pid[0] || 'posts'}`);
-		console.log("resDashboardUser.data",resDashboardUser.data);
 		if (resDashboardUser.data.success) {
 			return {
 				props: {

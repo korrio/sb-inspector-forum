@@ -117,7 +117,7 @@ const NavBarComponent = () => {
 			>
 				<CustomImage
 					className="rounded-circle"
-					src={`/images/nft-rank-01.png`}
+					src={`/images/JUTC.svg`}
 					width={34}
 					height={34}
 					alt={user?.user_name}
@@ -143,11 +143,17 @@ const NavBarComponent = () => {
 				</Link>
 				<Dropdown.Divider className="m-0" />
 				<Link href={`/dashboard`} passHref>
-					<Dropdown.Item>Dashboard</Dropdown.Item>
+					<Dropdown.Item>Inspector</Dropdown.Item>
 				</Link>
 				<Link href="/new" passHref>
 					<Dropdown.Item>New Post</Dropdown.Item>
 				</Link>
+
+				<Link href="https://mint-jutc.vercel.app/" passHref>
+					<Dropdown.Item>Buy JUTC</Dropdown.Item>
+				</Link>
+
+				
 
 				<Dropdown.Divider className="m-0" />
 				<Dropdown.Item onClick={onLogoutClick}>Logout</Dropdown.Item>
@@ -156,7 +162,7 @@ const NavBarComponent = () => {
 	);
 
 	const DropdownLocale = () => (
-		<Dropdown className='none'>
+		<Dropdown>
 			<Dropdown.Toggle as={NavLink} id="dropdown-locale" className="p-2 text-muted">
 				{router.locale === 'vi' ? 'Vietnamese' : 'English'}
 			</Dropdown.Toggle>
@@ -235,11 +241,11 @@ const NavBarComponent = () => {
 							{user && (
 								<>
 																				
-									<Nav.Item className="d-none d-md-block px-2">
+{/*									<Nav.Item className="d-none d-md-block px-2">
 										<Link href="/new" passHref>
 											<Nav.Link className="btn btn-primary text-white fw-bold">Report Crime</Nav.Link>
 										</Link>
-									</Nav.Item>
+									</Nav.Item> */}
 									<WalletConnectorButton />
 								</>
 							)}
