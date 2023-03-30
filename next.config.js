@@ -13,24 +13,22 @@ module.exports = (phase) => {
 	const env = {
 		WEBSITE_URL: (() => {
 			if (isDev) return 'http://localhost:3000';
-			// if (isDev) return 'https://api.socialbureau.io';
 			if (isProd) {
-				return 'http://localhost:3000';
+				return 'https://sb-forum-frontend.vercel.app';
 			}
-			if (isStaging) return 'https://frontend-forum-example.vercel.app';
+			if (isStaging) return 'https://sb-forum-frontend.vercel.app';
 			return 'RESTURL_SPEAKERS:not (isDev,isProd && !isStaging,isProd && isStaging)';
 		})(),
 		API_URL: (() => {
-			// if (isDev) return 'http://localhost:8001/api';
 			if (isDev) return 'https://api.socialbureau.io/api';
-			if (isProd) return 'https://backend-forum-example.herokuapp.com/api';
-			if (isStaging) return 'https://backend-forum-example.herokuapp.com/api';
+			if (isProd) return 'https://api.socialbureau.io/api';
+			if (isStaging) return 'https://api.socialbureau.io/api';
 			return 'RESTURL_SESSIONS:not (isDev,isProd && !isStaging,isProd && isStaging)';
 		})(),
 		IMAGES_URL: (() => {
-			if (isDev) return 'https://images.theconversation.com/files/500899/original/file-20221214-461-22jr1l.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop&';
-			if (isProd) return 'https://backend-forum-example.herokuapp.com/images';
-			if (isStaging) return 'https://backend-forum-example.herokuapp.com/images';
+			if (isDev) return 'https://api.socialbureau.io/images-local';
+			if (isProd) return 'https://api.socialbureau.io/images';
+			if (isStaging) return 'https://api.socialbureau.io/images';
 			return 'RESTURL_SESSIONS:not (isDev,isProd && !isStaging,isProd && isStaging)';
 		})(),
 		LIMIT_PAGE: {
@@ -52,7 +50,7 @@ module.exports = (phase) => {
 		},
 		META: {
 			TITLE: 'Social Bureau Forum',
-			DESCRIPTION: 'A social network for crime reporters and inspectors.',
+			DESCRIPTION: 'A social network for crime inspectors.',
 			TWITTER: '@socialbureau_',
 			IMAGE: 'libeyondea-background-night.png'
 		}
@@ -61,20 +59,12 @@ module.exports = (phase) => {
 		env,
 		reactStrictMode: true,
 		images: {
-			domains: ['localhost', 'backend-forum-example.herokuapp.com', 'socialbureau.io','variety.com','theconversation.com','images.theconversation.com']
+			domains: ['localhost', 'api.socialbureau.io','socialbureau.io']
 		},
 		i18n: {
-			locales: ['en', 'vi'],
+			locales: ['en', 'th'],
 			defaultLocale: 'en',
 			localeDetection: false
-		},
-		eslint: {
-    // Warning: This allows production builds to successfully complete even if
-    // your project has ESLint errors.
-    ignoreDuringBuilds: true,
-    experimental: {
-	    esmExternals: false
-	  }
-  },
+		}
 	};
 };

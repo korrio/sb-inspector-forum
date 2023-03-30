@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://frontend-forum-example.vercel.app/login</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2023-03-21T22:01:44.871Z</lastmod></url>
-<url><loc>https://frontend-forum-example.vercel.app/new</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2023-03-21T22:01:44.872Z</lastmod></url>
-<url><loc>https://frontend-forum-example.vercel.app/register</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2023-03-21T22:01:44.872Z</lastmod></url>
-<url><loc>https://frontend-forum-example.vercel.app/search</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2023-03-21T22:01:44.872Z</lastmod></url>
-<url><loc>https://frontend-forum-example.vercel.app/tags</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2023-03-21T22:01:44.872Z</lastmod></url>
-<url><loc>https://frontend-forum-example.vercel.app/verify_users</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2023-03-21T22:01:44.872Z</lastmod></url>
-</urlset>
