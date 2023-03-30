@@ -183,8 +183,8 @@ const NewPostFormComponent = ({ isPreview }) => {
 									</div>
 									<div className="mb-3 col-md-12">
 										{/*<App />*/}
-										<MyUploader />
-										{/* <ImagePostForm
+										{/*<MyUploader />*/}
+										<ImagePostForm
 											label="Evidence image (.png, .jpg, .jpeg .gif)"
 											id="image"
 											name="image"
@@ -197,7 +197,7 @@ const NewPostFormComponent = ({ isPreview }) => {
 											imageSrc={loadImg}
 											imagAlt={`Image`}
 											removeImage={() => onChangeRemoveImage(setFieldValue)}
-										/> */}
+										/>
 									</div>
 									
 								</div>

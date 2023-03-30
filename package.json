@@ -24,8 +24,6 @@
 		"lodash": "^4.17.21",
 		"moment": "^2.29.1",
 		"next": "^11.0.1",
-		"next-sitemap": "^1.6.124",
-		"nft.storage": "^7.0.3",
 		"nprogress": "^0.2.0",
 		"query-string": "^7.0.1",
 		"react": "^17.0.2",

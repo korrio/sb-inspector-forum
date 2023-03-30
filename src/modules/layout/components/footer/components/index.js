@@ -10,7 +10,7 @@ const FooterComponent = () => {
 					<div className="col-12 col-md-3 mb-4">
 						<CustomImage
 							className="logo"
-							src={`https://socialbureau.io/wp-content/uploads/2021/09/logo-1.png`}
+							src={`/images/logo.png`}
 							width={260}
 							height={120}
 							alt="Social Bureau"

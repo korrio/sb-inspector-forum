@@ -21,6 +21,7 @@ import style from '@/modules/layout/components/navbar/styles/style.module.scss';
 import WalletConnectorButton from '@/common/components/WalletConnector';
 import { useWeb3Context } from '@/common/context';
 
+
 const NavBarComponent = () => {
 	const { web3Provider, connect, address } = useWeb3Context()
 	const router = useRouter();
@@ -116,7 +117,7 @@ const NavBarComponent = () => {
 			>
 				<CustomImage
 					className="rounded-circle"
-					src={`https://variety.com/wp-content/uploads/2021/04/Avatar.jpg`}
+					src={`/images/nft-rank-01.png`}
 					width={34}
 					height={34}
 					alt={user?.user_name}
@@ -177,8 +178,8 @@ const NavBarComponent = () => {
 						<Navbar.Brand className="d-flex align-items-center me-md-3 me-auto">
 							<CustomImage
 								className=""
-								src={`http://localhost:3000/_next/image?url=https%3A%2F%2Fsocialbureau.io%2Fwp-content%2Fuploads%2F2021%2F09%2Flogo-1.png&w=640&q=75`}
-								width={90}
+								src={`/images/logo.png`}
+								width={100}
 								height={44}
 								alt="Logo"
 								layout="fixed"
