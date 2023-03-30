@@ -9,14 +9,15 @@ module.exports = (phase) => {
 	const isStaging = phase === PHASE_PRODUCTION_BUILD && process.env.STAGING === '1';
 
 	console.log(`isDev:${isDev} isProd:${isProd} isStaging:${isStaging}`);
+	console.log('%cINSPECTOR AREA', 'font-size: 4rem; color: red; font-weight: 600;');
 
 	const env = {
 		WEBSITE_URL: (() => {
 			if (isDev) return 'http://localhost:3000';
 			if (isProd) {
-				return 'https://sb-inspector-forum-korrio.vercel.app/';
+				return 'https://sb-inspector-forum-korrio.vercel.app';
 			}
-			if (isStaging) return 'https://sb-forum-frontend.vercel.app';
+			if (isStaging) return 'https://sb-inspector-forum-korrio.vercel.app';
 			return 'RESTURL_SPEAKERS:not (isDev,isProd && !isStaging,isProd && isStaging)';
 		})(),
 		API_URL: (() => {
