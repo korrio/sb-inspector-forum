@@ -6,7 +6,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
-		"build": "ssh-add -K ~/.ssh/github && next build",
+		"build": "next build",
 		"start": "next start",
 		"lint": "next lint"
 	},
