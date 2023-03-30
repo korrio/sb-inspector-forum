@@ -2,6 +2,7 @@ import 'react-dropzone-uploader/dist/styles.css'
 import Dropzone from 'react-dropzone-uploader'
 import { NFTStorage, Blob } from 'nft.storage'
 
+
 const MyUploader = () => {
     const endpoint = 'https://nft.storage/api/upload'
     const API_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDI0MmRCYjVEOTMyY0FjRTRhMjA2ZjU2QjFBY2FiMzI2NkVmOTU5MzAiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY1OTMzMzg5NDI2MSwibmFtZSI6InBsYXlncm91bmQifQ.dNltljSnTbLgZyvvI-2ZJc2CvLs5FSPPjGG4kOhVwCg" // your API key from https://nft.storage/manage
@@ -54,6 +55,5 @@ inputContent={() => ( 'Drag files here')}
 />
     )
 }
-<MyUploader />
 
 export default MyUploader;

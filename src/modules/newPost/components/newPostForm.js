@@ -7,6 +7,8 @@ import React, { useState } from 'react';
 import useSWR from 'swr';
 import * as Yup from 'yup';
 
+// import Staking from "@/common/components/ImagePostForm/components/Staking";
+// import App from '@/common/components/ImagePostForm/components/App'
 import CustomImage from '@/common/components/CustomImage/components';
 import ImagePostForm from '@/common/components/ImagePostForm/components';
 import FileUploadMultiple from '@/common/components/FileUploadMultiple/components';
@@ -21,8 +23,9 @@ import showToast from '@/common/utils/showToast';
 
 // import Dropzone from 'react-dropzone-uploader'
 
-import Thumb from "@/common/components/ImagePostForm/components/thumb";
+// import Thumb from "@/common/components/ImagePostForm/components/thumb";
 import MyUploader from "@/common/components/ImagePostForm/components/MyUploader";
+// 
 
 const dropzoneStyle = {
   width: "100%",
@@ -179,6 +182,7 @@ const NewPostFormComponent = ({ isPreview }) => {
 										/>
 									</div>
 									<div className="mb-3 col-md-12">
+										{/*<App />*/}
 										<MyUploader />
 										{/* <ImagePostForm
 											label="Evidence image (.png, .jpg, .jpeg .gif)"

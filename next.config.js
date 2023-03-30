@@ -15,13 +15,13 @@ module.exports = (phase) => {
 			if (isDev) return 'http://localhost:3000';
 			// if (isDev) return 'https://api.socialbureau.io';
 			if (isProd) {
-				return 'https://api.socialbureau.io';
+				return 'http://localhost:3000';
 			}
 			if (isStaging) return 'https://frontend-forum-example.vercel.app';
 			return 'RESTURL_SPEAKERS:not (isDev,isProd && !isStaging,isProd && isStaging)';
 		})(),
 		API_URL: (() => {
-			// if (isDev) return 'http://localhost:8000/api';
+			// if (isDev) return 'http://localhost:8001/api';
 			if (isDev) return 'https://api.socialbureau.io/api';
 			if (isProd) return 'https://backend-forum-example.herokuapp.com/api';
 			if (isStaging) return 'https://backend-forum-example.herokuapp.com/api';
@@ -72,6 +72,9 @@ module.exports = (phase) => {
     // Warning: This allows production builds to successfully complete even if
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
+    experimental: {
+	    esmExternals: false
+	  }
   },
 	};
 };

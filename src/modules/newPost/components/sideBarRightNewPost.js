@@ -1,4 +1,5 @@
 import React from 'react';
+// import Staking from '@/common/components/Staking/components'
 
 const SideBarRightNewPostComponent = () => {
 	return (
@@ -81,6 +82,7 @@ const SideBarRightNewPostComponent = () => {
 					</tbody>
 				</table>
 			</details>
+			{/* <Staking /> */}
 		</>
 	);
 };
