@@ -47,7 +47,7 @@ module.exports = (phase) => {
 			TIMEOUT: 30000
 		},
 		IMAGES: {
-			DEFAULT_IMAGE_AVATAR: 'default_avatar.png'
+			DEFAULT_IMAGE_AVATAR: 'images/image-error.png'
 		},
 		META: {
 			TITLE: 'Social Bureau Forum',
