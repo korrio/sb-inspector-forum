@@ -60,31 +60,31 @@ const giauPass = "https://i.imgur.com/8IuucQZ.jpg";
 	      </Carousel.Item>
 	    </Carousel>
 	    </div>
-	    <div class="container box-main pt-5">
-            <div class="container text-center">
-                <div class="row">
-                    <div class="col-6">
-                        <div class="card car-corp">
-                            <div class="card-body card-corp-body">
-                                <h2 class="card-title">FOR CORPERATE</h2>
+	    <div className="container box-main pt-5">
+            <div className="container text-center">
+                <div className="row">
+                    <div className="col-6">
+                        <div className="card car-corp">
+                            <div className="card-body card-corp-body">
+                                <h2 className="card-title">FOR CORPERATE</h2>
                             </div>
                         </div>
                     </div>
-                    <div class="col-6">
-                        <div class="card car-corp">
-                            <div class="card-body card-corp-body">
-                                <h2 class="card-title">FOR AN <br />
+                    <div className="col-6">
+                        <div className="card car-corp">
+                            <div className="card-body card-corp-body">
+                                <h2 className="card-title">FOR AN <br />
                                     INDIVIDUAL USER</h2>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-6">
-                        <button type="button" class="btn btn-light txtSearch_ind ">API docs</button>
+                <div className="row">
+                    <div className="col-6">
+                        <button type="button" className="btn btn-light txtSearch_ind ">API docs</button>
                     </div>
-                    <div class="col-6">
-                        <button type="button" class="btn btn-light txtSearch_ind ">Search</button>
+                    <div className="col-6">
+                        <button type="button" className="btn btn-light txtSearch_ind ">Search</button>
                     </div>
                 </div>
             </div>
