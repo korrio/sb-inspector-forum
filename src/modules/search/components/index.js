@@ -75,6 +75,16 @@ const SearchComponent = () => {
 								pidTab={query?.sort}
 								items={[
 									{
+										title: 'Upvote',
+										slug: 'upvote',
+										href: `/search?q=${q}&type=${type}&sort=upvote`
+									},
+									{
+										title: 'Recommended',
+										slug: 'recommended',
+										href: `/search?q=${q}&type=${type}&sort=recommended`
+									},
+									{
 										title: 'Relavance',
 										slug: 'relavance',
 										href: `/search?q=${q}&type=${type}&sort=relavance`

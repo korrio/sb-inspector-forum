@@ -71,7 +71,7 @@ const FooterComponent = () => {
 								</a>
 							</li>
 							<li>
-								<a className="text-secondary text-decoration-none" href="/">
+								<a className="text-secondary text-decoration-none" href="https://thaihotline.org/en/report/">
 									Final resource
 								</a>
 							</li>
