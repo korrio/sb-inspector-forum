@@ -121,11 +121,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Twitter - [@libeyondea](https://twitter.com/libeyondea)
+Twitter - [@socialbureau_](https://twitter.com/socialbureau_)
 
-Email - libeyondea@gmail.com
-
-Other Project: [https://github.com/libeyondea](https://github.com/libeyondea)
+Email - info@socialbureau.io
 
 ## Acknowledgements
 

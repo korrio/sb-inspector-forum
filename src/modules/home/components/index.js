@@ -34,13 +34,13 @@ const HomeComponent = ({ listPostPinned, listPost, pid }) => {
 					<div className="d-flex align-items-center mb-3">
 						<h4 className="me-auto mb-0">{Language.titleListPost(router.locale)}</h4>
 						<TabHorizontal
-							pidTab={pid[0]}
+							pidTab={pid[1]}
 							items={[
-								{
-									title: 'Feed',
-									slug: 'feed',
-									href: '/feed'
-								},
+								// {
+								// 	title: 'Feed',
+								// 	slug: 'feed',
+								// 	href: '/feed'
+								// },
 								{
 									title: 'Latest',
 									slug: 'latest',

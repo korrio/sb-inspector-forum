@@ -54,7 +54,7 @@ const PostCardComponent = ({ post }) => {
 										overlay={
 											<Popover id={`popover-positioned-options-single-user`}>
 												<Popover.Header as="h3" className="text-center">
-													Insepctor
+													Inspector
 												</Popover.Header>
 												<Popover.Body className="p-0">
 													<CustomLink href="#" className="d-flex align-items-center dropdown-item">

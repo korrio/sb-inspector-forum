@@ -10,6 +10,12 @@ import ListPostComponent from '@/modules/dashboardUser/components/listPost';
 import ListUserFollowerComponent from '@/modules/dashboardUser/components/listUserFollower';
 import CustomImage from '@/common/components/CustomImage/components';
 
+import Link from 'next/link';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavItem from 'react-bootstrap/NavItem';
+import NavLink from 'react-bootstrap/NavLink';
+
 const DashboardUserComponent = ({ dashboardUser, pid }) => {
 	const { user } = useUser();
 	pid[0] = 'posts';
@@ -19,7 +25,10 @@ const DashboardUserComponent = ({ dashboardUser, pid }) => {
 				<LoadingSpinner />
 			) : (*/}
 				<>
-					<CustomImage className="pb-4 img-fluid" src={`/images/stake.png`} width={1320} height={340} alt={'stake_area'} />
+					<Link href="https://mint-jutc.vercel.app/" passHref target="_blank">
+						<Nav.Link><CustomImage className="pb-4 img-fluid" src={`/images/stake.png`} width={1320} height={340} alt={'stake_area'} /></Nav.Link>
+					</Link>
+					
 					<h3 className="mb-4 fw-bold">
 						Dashboard »{' '}
 						{!pid[0] || pid[0] === 'posts'

@@ -14,12 +14,12 @@ const ListPostComponent = ({ listPost }) => {
 	const [search, setSearch] = useState(router.query?.q || '');
 
 	const onSearchSubmit = (e) => {
-		// e.preventDefault();
-		// try {
-		// 	router.push(`/search?q=${search}${router.query?.type ? `&type=${router.query?.type}` : ''}`);
-		// } catch (error) {
-		// 	showToast.error();
-		// }
+		e.preventDefault();
+		try {
+			router.push(`/search?q=${search}${router.query?.type ? `&type=${router.query?.type}` : ''}`);
+		} catch (error) {
+			showToast.error();
+		}
 	};
 
 	const handleChangeSearch = (event) => {
