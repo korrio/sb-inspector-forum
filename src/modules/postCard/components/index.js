@@ -17,6 +17,15 @@ import Popover from 'react-bootstrap/Popover';
 import { FaBolt, FaEllipsisH, FaFacebookF, FaHeart, FaRegHeart, FaTwitter } from 'react-icons/fa';
 
 const PostCardComponent = ({ post }) => {
+
+	console.log("post",post);
+
+	function rand(min, max) { // min and max included 
+	  return Math.floor(Math.random() * (max - min + 1) + min)
+	}
+
+	const randomPrice = rand(1000,100000);
+
 	return (
 		<div className={`card shadow-sm ${style.post_card}`}>
 			<div className="p-3">
@@ -45,6 +54,107 @@ const PostCardComponent = ({ post }) => {
 								/>
 							</CustomLink>
 						</div>
+						{post.category.id == 3 && (
+						<div className="d-flex position-absolute action-2">
+							<div className="me-1">
+								<div
+								
+									className="text-decoration-none d-inline-block d-flex align-items-center"
+								>
+									
+									<span class="badge bg-warning">Data Sales</span>
+{/*<span class="badge badge-secondary">Secondary</span>
+<span class="badge badge-success">Success</span>
+<span class="badge badge-danger">Danger</span>
+<span class="badge badge-warning">Warning</span>
+<span class="badge badge-info">Info</span>
+<span class="badge badge-light">Light</span>
+<span class="badge badge-dark">Dark</span>*/}
+								</div>
+							</div>
+						</div>
+						)}
+						{post.category.id == 5 && (
+						<div className="d-flex position-absolute action-2">
+							<div className="me-1">
+								<div
+								
+									className="text-decoration-none d-inline-block d-flex align-items-center"
+								>
+									
+									<span class="badge bg-secondary">Knowledge</span>
+{/*<span class="badge badge-secondary">Secondary</span>
+<span class="badge badge-success">Success</span>
+<span class="badge badge-danger">Danger</span>
+<span class="badge badge-warning">Warning</span>
+<span class="badge badge-info">Info</span>
+<span class="badge badge-light">Light</span>
+<span class="badge badge-dark">Dark</span>*/}
+								</div>
+							</div>
+						</div>
+						)}
+						{post.category.id == 1 && (
+						<div className="d-flex position-absolute action-2">
+							<div className="me-1">
+								<div
+								
+									className="text-decoration-none d-inline-block d-flex align-items-center"
+								>
+									
+									<span class="badge btn-danger">Crime Report</span>
+{/*<span class="badge badge-secondary">Secondary</span>
+<span class="badge badge-success">Success</span>
+<span class="badge badge-danger">Danger</span>
+<span class="badge badge-warning">Warning</span>
+<span class="badge badge-info">Info</span>
+<span class="badge badge-light">Light</span>
+<span class="badge badge-dark">Dark</span>*/}
+								</div>
+							</div>
+						</div>
+						)}
+						{post.category.id == 2 && (
+						<div className="d-flex position-absolute action-2">
+							<div className="me-1">
+								<div
+								
+									className="text-decoration-none d-inline-block d-flex align-items-center"
+								>
+									
+									<span class="badge btn-primary">Dispute</span>
+{/*<span class="badge badge-secondary">Secondary</span>
+<span class="badge badge-success">Success</span>
+<span class="badge badge-danger">Danger</span>
+<span class="badge badge-warning">Warning</span>
+<span class="badge badge-info">Info</span>
+<span class="badge badge-light">Light</span>
+<span class="badge badge-dark">Dark</span>*/}
+								</div>
+							</div>
+						</div>
+						)}
+						
+						{post.category.id == 4 && (
+						<div className="d-flex position-absolute action-2">
+							<div className="me-1">
+								<div
+								
+									className="text-decoration-none d-inline-block d-flex align-items-center"
+								>
+									<CustomImage
+										src={`/images/JUTC.svg`}
+										className="rounded-circle h-100 w-100 px-2"
+										width={33}
+										height={33}
+										alt={post.user.user_name}
+										layout="fixed"
+									/>
+									<span>{randomPrice} JUTC</span>
+								</div>
+							</div>
+						</div>
+						)}
 						<div className={`d-flex position-absolute action`}>
 									<OverlayTrigger
 										trigger="click"
