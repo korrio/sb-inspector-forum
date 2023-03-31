@@ -31,10 +31,17 @@ const CommentCard = ({
 			<>
 				<div className={`flex-shrink-0 me-2 me-sm-3 flex-column ${minimized ? 'd-none' : 'd-flex'}`}>
 					<CustomLink href={`/u/${comment.user?.user_name}`} className="mb-2 text-decoration-none d-inline-flex">
-						<CustomImage
+						{/*<CustomImage
 							width="33"
 							height="33"
 							src={`${process.env.IMAGES_URL}/${comment.user?.avatar}`}
+							alt={comment.user?.user_name}
+							className="rounded-circle h-100 w-100"
+						/> */}
+						<CustomImage
+							width="33"
+							height="33"
+							src={`/images/image-error.png`}
 							alt={comment.user?.user_name}
 							className="rounded-circle h-100 w-100"
 						/>
@@ -90,7 +97,13 @@ const CommentCard = ({
 													Open
 												</CustomLink>
 												<CustomLink href={`/report_abuse`} className="d-flex align-items-center dropdown-item">
-													Report abuse
+													Credibility
+												</CustomLink>
+												<CustomLink href={`/report_abuse`} className="d-flex align-items-center dropdown-item">
+													Likelihood
+												</CustomLink>
+												<CustomLink href={`/report_abuse`} className="d-flex align-items-center dropdown-item">
+													Report
 												</CustomLink>
 												{user && user?.user_name === comment.user?.user_name && (
 													<>

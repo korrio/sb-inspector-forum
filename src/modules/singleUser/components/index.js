@@ -7,6 +7,8 @@ import { FaEllipsisH, FaHashtag, FaRegComment, FaRegHeart } from 'react-icons/fa
 import { GoReport } from 'react-icons/go';
 import { GrArticle } from 'react-icons/gr';
 
+import ListCategoryComponent from '@/modules/layout/components/sidebarRight/components/listCategory/components';
+
 import CustomImage from '@/common/components/CustomImage/components';
 import CustomLink from '@/common/components/CustomLink/components';
 import useUser from '@/common/hooks/useUser';
@@ -15,6 +17,7 @@ import FollowUserButtonComponent from '@/modules/singleUser/components/followUse
 import ListPostUserComponent from '@/modules/singleUser/components/listPostUser';
 import timeFormat from '@/common/utils/timeFormat';
 import style from '@/modules/singleUser/styles/style.module.scss';
+
 
 const SingleUserComponent = ({ singleUser, listPostUser }) => {
 	const { user } = useUser();
@@ -25,8 +28,15 @@ const SingleUserComponent = ({ singleUser, listPostUser }) => {
 					<div className={`text-left bg-light rounded-3 shadow-sm px-4 pb-4 pt-4 ${style.info__user} cover-bg`}>
 						<div className={`position-relative mb-2 ${style.avt}`}>
 							<span className="d-inline-flex p-3 rounded-circle">
-								<CustomImage
+{/*								<CustomImage
 									src={`${process.env.IMAGES_URL}/${singleUser.data?.avatar}`}
+									alt={singleUser.data?.user_name}
+									className="avatar rounded-circle"
+									width="133"
+									height="133"
+								/>*/}
+								<CustomImage
+									src={`/images/JUTC.svg`}
 									alt={singleUser.data?.user_name}
 									className="avatar rounded-circle"
 									width="133"
@@ -75,7 +85,7 @@ const SingleUserComponent = ({ singleUser, listPostUser }) => {
 							</div>
 						)}
 						{singleUser.data?.user_name !== user?.user_name && (
-							<div className="d-flex justify-content-sm-center">
+							<div className="d-flex ">
 								<FollowUserButtonComponent
 									user_name={singleUser.data?.user_name}
 									following={singleUser.data?.following}
@@ -97,7 +107,7 @@ const SingleUserComponent = ({ singleUser, listPostUser }) => {
 						</li>
 						<li className="list-group-item d-flex flex-wrap align-items-center">
 							<GrArticle className="me-1" />
-							<span>77.80 Score</span>
+							<span>77.80 RS (Reliability Score)</span>
 						</li>
 						<li className="list-group-item d-flex flex-wrap align-items-center">
 							<FaRegComment className="me-1" />
@@ -115,22 +125,41 @@ const SingleUserComponent = ({ singleUser, listPostUser }) => {
 					<h4 className="mt-4">Badges</h4>
 					<ul className="wapper__card list-group rounded-3 shadow-sm">
 						<li className="list-group-item d-flex flex-wrap align-items-center">
-							<GrArticle className="me-1" />
+							<CustomImage
+									src={`/images/nft-rank-01.png`}
+									className="rounded-circle h-100 w-100"
+									width={33}
+									height={33}
+									layout="fixed"
+								/>
 							<span>12 Gold Badges</span>
 						</li>
 						<li className="list-group-item d-flex flex-wrap align-items-center">
-							<GrArticle className="me-1" />
+							<CustomImage
+									src={`/images/nft-rank-02.png`}
+									className="rounded-circle h-100 w-100"
+									width={33}
+									height={33}
+									layout="fixed"
+								/>
 							<span>37 Silver Badges</span>
 						</li>
 						<li className="list-group-item d-flex flex-wrap align-items-center">
-							<GrArticle className="me-1" />
+							<CustomImage
+									src={`/images/nft-rank-03.png`}
+									className="rounded-circle h-100 w-100"
+									width={33}
+									height={33}
+									layout="fixed"
+								/>
 							<span>24 Bronze Badges</span>
 						</li>
 						
 					</ul>
 					<h4 className="mt-4">Top 5 Categories</h4>
 					<ul className="wapper__card list-group rounded-3 shadow-sm">
-						<li className="list-group-item d-flex flex-wrap align-items-center">
+						<ListCategoryComponent />
+					{/*	<li className="list-group-item d-flex flex-wrap align-items-center">
 							
 							<span>#1 Cryptocurrency</span>
 						</li>
@@ -149,7 +178,7 @@ const SingleUserComponent = ({ singleUser, listPostUser }) => {
 						<li className="list-group-item d-flex flex-wrap align-items-center">
 						
 							<span>#5 Car</span>
-						</li>
+						</li>*/}
 						
 					</ul>
 				</div>

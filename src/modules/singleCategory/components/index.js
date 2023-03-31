@@ -14,7 +14,7 @@ const SingleCategoryComponent = ({ singleCategory, listPostCategory, pid }) => {
 				<div className="col-xl-9 col-md-8">
 					<h1 className="mb-3">{singleCategory.data?.title}</h1>
 					<div className="d-flex align-items-center mb-3">
-						<h4 className="me-auto mb-0">Posts</h4>
+						<h4 className="me-auto mb-0">Tasks</h4>
 						<TabHorizontal
 							pidTab={pid[1]}
 							items={[
@@ -37,7 +37,7 @@ const SingleCategoryComponent = ({ singleCategory, listPostCategory, pid }) => {
 						/>
 					</div>
 					{isEmpty(listPostCategory.data) ? (
-						<EmptyBox text="Empty posts" />
+						<EmptyBox text="Empty tasks" />
 					) : (
 						<div className="row row-cols-1 g-3 mb-3">
 							{listPostCategory.data.map((post) => (

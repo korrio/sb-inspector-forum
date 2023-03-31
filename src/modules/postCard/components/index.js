@@ -12,6 +12,9 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavItem from 'react-bootstrap/NavItem';
 import NavLink from 'react-bootstrap/NavLink';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Popover from 'react-bootstrap/Popover';
+import { FaBolt, FaEllipsisH, FaFacebookF, FaHeart, FaRegHeart, FaTwitter } from 'react-icons/fa';
 
 const PostCardComponent = ({ post }) => {
 	return (
@@ -24,8 +27,16 @@ const PostCardComponent = ({ post }) => {
 								href={`/u/${post.user.user_name}`}
 								className="text-decoration-none d-inline-block d-flex align-items-center"
 							>
-								<CustomImage
+								{/*<CustomImage
 									src={`${process.env.IMAGES_URL}/${post.user.avatar}`}
+									className="rounded-circle h-100 w-100"
+									width={33}
+									height={33}
+									alt={post.user.user_name}
+									layout="fixed"
+								/>*/}
+								<CustomImage
+									src={`/images/JUTC.svg`}
 									className="rounded-circle h-100 w-100"
 									width={33}
 									height={33}
@@ -34,6 +45,36 @@ const PostCardComponent = ({ post }) => {
 								/>
 							</CustomLink>
 						</div>
+						<div className={`d-flex position-absolute action`}>
+									<OverlayTrigger
+										trigger="click"
+										key="options-single-user"
+										placement="left"
+										rootClose
+										overlay={
+											<Popover id={`popover-positioned-options-single-user`}>
+												<Popover.Header as="h3" className="text-center">
+													Insepctor
+												</Popover.Header>
+												<Popover.Body className="p-0">
+													<CustomLink href="#" className="d-flex align-items-center dropdown-item">
+														Credibility
+													</CustomLink>
+													<CustomLink href="#" className="d-flex align-items-center dropdown-item">
+														Likelihood
+													</CustomLink>
+													<CustomLink href="#" className="d-flex align-items-center dropdown-item">
+														Report
+													</CustomLink>
+												</Popover.Body>
+											</Popover>
+										}
+									>
+										<button type="button" className="d-flex align-items-center p-0 border-0 bg-transparent">
+											<FaBolt className="me-1" />
+										</button>
+									</OverlayTrigger>
+								</div>
 						<div className="lh-1">
 							<div className="d-flex align-items-center">
 								<CustomLink href={`/u/${post.user.user_name}`} className="text-decoration-none text-dark">
@@ -86,9 +127,8 @@ const PostCardComponent = ({ post }) => {
 							className="d-flex align-items-center text-decoration-none text-secondary me-2"
 						>
 							<Link href="#" passHref>
-											<Nav.Link className="btn btn-primary text-white fw-bold"><span className="d-none d-sm-block">Give Rewards</span></Nav.Link>
-										</Link>
-							
+									<Nav.Link className="btn btn-primary text-white fw-bold"><span className="d-none d-sm-block">Give Rewards</span></Nav.Link>
+							</Link>
 						</CustomLink>
 					</div>
 				</div>
