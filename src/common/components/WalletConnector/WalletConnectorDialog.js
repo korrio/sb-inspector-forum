@@ -12,6 +12,7 @@ const WalletConnectorDialog = ({ showDialog, close }) => {
         OPTIMISM: 10,
         RINKEBY: 4,
         BSC_MAINNET: 56,
+        BSC_TESTNET: 97
     }
 
     return (

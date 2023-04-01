@@ -149,9 +149,15 @@ const NavBarComponent = () => {
 					<Dropdown.Item>New Post</Dropdown.Item>
 				</Link>
 
-				<Link href="https://mint-jutc.vercel.app/" passHref>
+				<Link href="https://mint-jutc.vercel.app/" passHref target="_blank">
 					<Dropdown.Item>Buy JUTC</Dropdown.Item>
 				</Link>
+
+				<Link href="https://api-docs.socialbureau.io/" passHref target="_blank">
+					<Dropdown.Item>API docs</Dropdown.Item>
+				</Link>
+
+				
 
 				
 
@@ -223,7 +229,7 @@ const NavBarComponent = () => {
 						</Nav>
 						<Nav className="align-items-md-center ms-auto">
 						<Nav.Item className="d-none d-md-block px-2">
-										<Link href="/search" passHref>
+										<Link href="index2.html" passHref>
 											<Nav.Link>Background Check</Nav.Link>
 										</Link>
 									</Nav.Item>
@@ -301,7 +307,7 @@ const NavBarComponent = () => {
 					<nav className="mb-auto">
 						<ListOptionsMenu />
 					</nav>
-					{DropdownLocale()}
+					{/*{DropdownLocale()} */}
 				</Offcanvas.Body>
 			</Offcanvas>
 		</>

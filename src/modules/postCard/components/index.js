@@ -232,6 +232,17 @@ const PostCardComponent = ({ post }) => {
 							totalFavorited={post.total_favorited}
 							slug={post.slug}
 						/>
+						{post.category.id == 3 && (
+						<CustomLink
+							href={`#`}
+							className="d-flex align-items-center text-decoration-none text-secondary me-2"
+						>
+							<Link href="#" passHref>
+									<Nav.Link className="btn btn-success text-white fw-bold"><span className="d-none d-sm-block">Buy Data</span></Nav.Link>
+							</Link>
+						</CustomLink>
+						)}
+						{post.category.id != 3 && (
 						<CustomLink
 							href={`#`}
 							className="d-flex align-items-center text-decoration-none text-secondary me-2"
@@ -240,6 +251,7 @@ const PostCardComponent = ({ post }) => {
 									<Nav.Link className="btn btn-primary text-white fw-bold"><span className="d-none d-sm-block">Give Rewards</span></Nav.Link>
 							</Link>
 						</CustomLink>
+						)}
 					</div>
 				</div>
 			</div>

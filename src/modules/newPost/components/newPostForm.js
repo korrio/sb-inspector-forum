@@ -115,9 +115,25 @@ const NewPostFormComponent = ({ isPreview }) => {
 						{!isPreview ? (
 							<div className="p-3 p-sm-5">
 								<div className="row">
+									<div className="mb-3 col-md-12 mb-0">
+										<SelectForm label="Category" name="category_id">
+											<option value="">Select category</option>
+											{!listCategory ? (
+												<option value="">Loading...</option>
+											) : isEmpty(listCategory?.data) ? (
+												<option value="">Empty category</option>
+											) : (
+												listCategory?.data?.map((category) => (
+													<option value={category.id} key={category.id}>
+														{category.title}
+													</option>
+												))
+											)}
+										</SelectForm>
+									</div>
 									<div className="mb-3 col-md-12">
 										<ImagePostForm
-											label="Image (.png, .jpg, .jpeg .gif)"
+											label="Evidences (.png, .jpg, .jpeg .gif)"
 											id="image"
 											name="image"
 											type="file"
@@ -146,28 +162,13 @@ const NewPostFormComponent = ({ isPreview }) => {
 										<TextForm
 											rows="16"
 											label="Content (Markdown)"
-											placeholder="Enter content"
+											placeholder="Enter content and other support evidences here"
 											id="content"
 											name="content"
 											type="text"
 										/>
 									</div>
-									<div className="mb-3 col-md-12 mb-0">
-										<SelectForm label="Category" name="category_id">
-											<option value="">Select category</option>
-											{!listCategory ? (
-												<option value="">Loading...</option>
-											) : isEmpty(listCategory?.data) ? (
-												<option value="">Empty category</option>
-											) : (
-												listCategory?.data?.map((category) => (
-													<option value={category.id} key={category.id}>
-														{category.title}
-													</option>
-												))
-											)}
-										</SelectForm>
-									</div>
+									
 								</div>
 							</div>
 						) : (

@@ -5,28 +5,28 @@ const optionsMenu = [
 	{
 		icon: <FcHome className="h4 mb-0 me-1" />,
 		name: 'Home',
-		href: '/'
+		href: '/home.html'
 	},
 	{
 		icon: <FaTags className="h4 mb-0 me-1" />,
 		name: 'Tags',
 		href: '/tags'
 	},
-	{
-		icon: <FcAbout className="h4 mb-0 me-1" />,
-		name: 'About',
-		href: '/'
-	},
-	{
-		icon: <FcFaq className="h4 mb-0 me-1" />,
-		name: 'FAQ',
-		href: '/'
-	},
-	{
-		icon: <FcContacts className="h4 mb-0 me-1" />,
-		name: 'Contact',
-		href: '/'
-	},
+	// {
+	// 	icon: <FcAbout className="h4 mb-0 me-1" />,
+	// 	name: 'About',
+	// 	href: '/'
+	// },
+	// {
+	// 	icon: <FcFaq className="h4 mb-0 me-1" />,
+	// 	name: 'FAQ',
+	// 	href: '/'
+	// },
+	// {
+	// 	icon: <FcContacts className="h4 mb-0 me-1" />,
+	// 	name: 'Contact',
+	// 	href: '/'
+	// },
 	{
 		icon: <FcPrivacy className="h4 mb-0 me-1" />,
 		name: 'Privacy Policy',
