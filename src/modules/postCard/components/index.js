@@ -16,7 +16,11 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 import { FaBolt, FaEllipsisH, FaFacebookF, FaHeart, FaRegHeart, FaTwitter } from 'react-icons/fa';
 
+import { useWeb3Context } from '@/common/context'
+
 const PostCardComponent = ({ post }) => {
+
+	 const { web3Provider, connect, address } = useWeb3Context()
 
 	console.log("post",post);
 
@@ -232,7 +236,7 @@ const PostCardComponent = ({ post }) => {
 							totalFavorited={post.total_favorited}
 							slug={post.slug}
 						/>
-						{post.category.id == 3 && (
+						{post.category.id == 3 && web3Provider && (
 						<CustomLink
 							href={`#`}
 							className="d-flex align-items-center text-decoration-none text-secondary me-2"
@@ -242,7 +246,7 @@ const PostCardComponent = ({ post }) => {
 							</Link>
 						</CustomLink>
 						)}
-						{post.category.id != 3 && (
+						{post.category.id != 3 && web3Provider && (
 						<CustomLink
 							href={`#`}
 							className="d-flex align-items-center text-decoration-none text-secondary me-2"

@@ -173,7 +173,7 @@ const NewPostFormComponent = ({ isPreview }) => {
 							</div>
 						) : (
 							<article className="wapper__card">
-								{loadImg && (
+							{/*	{loadImg && (
 									<div>
 										<CustomImage
 											src={loadImg}
@@ -184,7 +184,7 @@ const NewPostFormComponent = ({ isPreview }) => {
 											height={220}
 										/>
 									</div>
-								)}
+								)}*/}
 								<div className="p-3 p-sm-5">
 									<div className="mb-3">
 										<h1>{values.title}</h1>

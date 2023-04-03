@@ -1,13 +1,13 @@
 import React from 'react';
 
-import RegisterFormComponent from '@/modules/register/components/registerForm';
+import RegisterFormComponentWeb3 from '@/modules/register/components/registerFormWeb3';
 
 const RegisterComponent = () => (
 	<div className="container-xl py-4">
 		<div className="row">
 			<div className="col-lg-8 col-md-10 mx-auto">
 				<div className="bg-light rounded-3 shadow-sm p-4">
-					<RegisterFormComponent />
+					<RegisterFormComponentWeb3 />
 				</div>
 			</div>
 		</div>

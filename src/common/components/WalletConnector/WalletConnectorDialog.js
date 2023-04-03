@@ -5,6 +5,7 @@ import DialogContent from "../Dialog/DialogContent";
 import { useWeb3Context } from "@/common/context";
 import TokenBalanceChip from "./TokenBalanceChip";
 
+
 const WalletConnectorDialog = ({ showDialog, close }) => {
     const { disconnect, chainId } = useWeb3Context()
     const ChainId = {

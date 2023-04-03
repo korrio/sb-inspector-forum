@@ -10,7 +10,12 @@ import httpRequest from '@/common/utils/httpRequest';
 import { setCookie } from '@/common/utils/session';
 import showToast from '@/common/utils/showToast';
 
+import WalletConnectorButton from '@/common/components/WalletConnector';
+import { useWeb3Context } from '@/common/context';
+
 const LoginFormComponent = () => {
+		const { web3Provider, connect, address } = useWeb3Context()
+
 	const router = useRouter();
 	const [isLoading, setLoading] = useState(false);
 	const [errors, setErrors] = useState({});
@@ -125,27 +130,27 @@ const LoginFormComponent = () => {
 							Login
 						</button>
 					)}
+{/*					<br/>
+					OR
+					<br/>
+					<WalletConnectorButton />*/}
 					<p className="mt-3">
 						Not a member?{' '}
 						<CustomLink className="text-decoration-none" href="/register">
 							Need an account?
 						</CustomLink>
-					</p>
-					{/* <p>or login in with:</p>
+					</p> 
+					<p>or login in with:</p>
 					<div>
-						<SocialButtonLogin
-							handleSocialLogin={handleSocialLogin}
-							handleSocialLoginFailure={handleSocialLoginFailure}
-							provider="facebook"
-						/>
+						<WalletConnectorButton />
 					</div>
-					<div>
+					{/*<div>
 						<SocialButtonLogin
 							handleSocialLogin={handleSocialLogin}
 							handleSocialLoginFailure={handleSocialLoginFailure}
 							provider="google"
 						/>
-					</div> */}
+					</div>*/}
 				</div>
 			</Form>
 		</Formik>

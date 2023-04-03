@@ -27,7 +27,7 @@ const SinglePostComponent = ({ singlePost, listPostUser, listComment }) => {
 									height={200}
 									isBlur
 								/>*/}
-								<CustomImage
+{/*								<CustomImage
 									src={`/images/bg-1.png`}
 									className="rounded-3"
 									alt={singlePost.data?.title}
@@ -35,7 +35,7 @@ const SinglePostComponent = ({ singlePost, listPostUser, listComment }) => {
 									width={500}
 									height={200}
 									isBlur
-								/>
+								/>*/}
 							</div>
 						)}
 						<div className="p-3 p-sm-5">

@@ -23,7 +23,7 @@ import { useWeb3Context } from '@/common/context';
 
 
 const NavBarComponent = () => {
-	const { web3Provider, connect, address } = useWeb3Context()
+	const { web3Provider, connect, address,disconnect, chainId } = useWeb3Context()
 	const router = useRouter();
 	const { user } = useUser();
 	const [search, setSearch] = useState(router.query?.q || '');
@@ -52,6 +52,11 @@ const NavBarComponent = () => {
 				url: `/current_user/logout`,
 				token: getCookie('token')
 			});
+
+			async () => {
+                        disconnect()
+                    }
+
 			if (response.data.success) {
 				removeCookie('token');
 				showToast.success('Logout success');
@@ -204,6 +209,7 @@ const NavBarComponent = () => {
 						<div className="d-flex align-items-center order-md-2">
 							{DropdownMenuNoti('')}
 							{DropdownMenuUser('')}
+							<WalletConnectorButton />
 						</div>
 					)}
 					<button
@@ -229,7 +235,7 @@ const NavBarComponent = () => {
 						</Nav>
 						<Nav className="align-items-md-center ms-auto">
 						<Nav.Item className="d-none d-md-block px-2">
-										<Link href="index2.html" passHref>
+										<Link href="/index2.html" passHref>
 											<Nav.Link>Background Check</Nav.Link>
 										</Link>
 									</Nav.Item>
@@ -252,12 +258,13 @@ const NavBarComponent = () => {
 											<Nav.Link className="btn btn-primary text-white fw-bold">Report Crime</Nav.Link>
 										</Link>
 									</Nav.Item> */}
-									<WalletConnectorButton />
+									
 								</>
 							)}
 							{!user && (
 								<>
-									<Nav.Item className="d-none">
+									<WalletConnectorButton />
+	{/*								<Nav.Item className="d-none">
 										<Link href="/register" passHref>
 											<Nav.Link>Register</Nav.Link>
 										</Link>
@@ -267,7 +274,7 @@ const NavBarComponent = () => {
 											<Nav.Link>Login</Nav.Link>
 										</Link>
 									</Nav.Item>
-									
+									*/}
 
 										
 								</>
