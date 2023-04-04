@@ -209,7 +209,7 @@ const NavBarComponent = () => {
 						<div className="d-flex align-items-center order-md-2">
 							{DropdownMenuNoti('')}
 							{DropdownMenuUser('')}
-							<WalletConnectorButton />
+							<div className='.d-sm-none .d-md-block 	.d-none .d-sm-block mr-2'><WalletConnectorButton /></div>
 						</div>
 					)}
 					<button
@@ -311,6 +311,7 @@ const NavBarComponent = () => {
 							<div className="border-top my-3" />
 						</>
 					)}
+					<WalletConnectorButton />
 					<nav className="mb-auto">
 						<ListOptionsMenu />
 					</nav>

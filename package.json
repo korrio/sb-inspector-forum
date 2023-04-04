@@ -11,6 +11,7 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@popperjs/core": "^2.11.7",
 		"@reach/dialog": "^0.18.0",
 		"@reach/tabs": "^0.18.0",
 		"@walletconnect/web3-provider": "^1.8.0",
@@ -25,6 +26,7 @@
 		"moment": "^2.29.1",
 		"next": "^11.0.1",
 		"nprogress": "^0.2.0",
+		"popper.js": "^1.16.1",
 		"query-string": "^7.0.1",
 		"react": "^17.0.2",
 		"react-bootstrap": "2.0.0-beta.2",

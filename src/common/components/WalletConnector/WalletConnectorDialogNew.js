@@ -59,6 +59,7 @@ const WalletConnectorDialogNew = ({ showDialog, close }) => {
                 <></>
             )}
 
+            <p class="text-justify text-center"><label>NFT</label><br/></p>
         </Modal.Body>
         <Modal.Footer>
         

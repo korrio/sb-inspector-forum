@@ -1,0 +1,38 @@
+.user {
+	width: 100%;
+}
+
+.cover_bg {
+	background-image: url('/images/bg-1.png');	
+}
+
+.info__user {
+	border-top: 7rem solid #fff;
+	.avt {
+		margin-top: -7rem !important;
+		span {
+			// background-color: #fff;
+		}
+	}
+}
+
+.bg_blue {
+	background: #d1dcec
+}
+
+.stat_icon {
+	margin:0px;
+	margin-top: 30px;
+}
+.stat_text {
+	font-size: 60px;
+	color: #00adec;
+}
+
+.edit_btn {
+	position: relative;
+    right: 10px;
+    top: 10px;
+    float: right;
+    // bottom: 10px;
+}

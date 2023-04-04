@@ -137,3 +137,79 @@ body {
 .card .action-2 {
     right: 50px !important;
 }
+
+.card.stats,.card.badges {
+	background-color: #d1dcec;
+}
+
+ .sb-card-header {
+	border-radius: 0px !important;
+	float: left;
+    background: #142440 !important;
+    color: #fff;
+    width: 120px;
+    text-align: center;
+    font-size: 18px;
+    padding: 0px;
+}
+.card.stats .card-body .card {
+	    min-height: 250px;
+	border-radius: 10px !important;
+}
+
+.card.stats .stat-label {
+	font-size:24px;
+	color:#3468b0;
+	font-weight: 700;
+}
+
+.card.badges .stat-label {
+	font-size:24px;
+	color:#3468b0;
+	font-weight: 700;
+}
+.card.badges .card-body .card  {
+	border-radius: 10px !important;
+	max-height: 160px;
+}
+.badge-icon {
+	float:left;
+}
+
+.badge-text-1 {
+	font-size:60px;
+	background-color: #00adec;
+	color:#fff;
+	border-radius: 10px;
+	padding:10px;
+}
+
+.badge-text-2 {
+	font-size:60px;
+	background-color: #00adec;
+	color:#fff;
+	border-radius: 10px;
+	padding:10px;
+}
+
+.badge-text-3 {
+	font-size:60px;
+	background-color: #00adec;
+	color:#fff;
+	border-radius: 10px;
+	padding:10px;
+}
+
+.table thead th {
+	background: #3468b0;
+    color: #fff;
+}
+
+.table .thead {
+
+}
+
+.btn-badge {
+	background-color: #3468b0;
+}
+    
