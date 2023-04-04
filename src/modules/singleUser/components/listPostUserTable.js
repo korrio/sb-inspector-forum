@@ -50,7 +50,7 @@ const ListPostUserTableComponent = ({ listPostUser }) => {
 				<EmptyBoxComponent text="Empty posts ListPostUserComponent" />
 			) : (
 				<div className="">
-				<table class="table">
+				<table className="table">
   <thead>
     <tr className="sb">
       <th scope="col">Topics</th>
@@ -66,7 +66,7 @@ const ListPostUserTableComponent = ({ listPostUser }) => {
 						
 							<tr  key={post.id}>
 					      <th scope="row">
-					      <span class="badge btn-badge float-left">{post.category.title}</span>
+					      <span className="badge btn-badge float-left">{post.category.title}</span>
 					      <CustomLink
 						href={`/u/${post.user.user_name}/${post.slug}`}
 						className={`text-decoration-none text-dark card-title mb-2 d-block `}

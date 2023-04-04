@@ -5,6 +5,9 @@ import Modal from 'react-bootstrap/Modal';
 import { useWeb3Context } from "@/common/context";
 import TokenBalanceChip from "./TokenBalanceChip";
 
+import showToast from '@/common/utils/showToast';
+import httpRequest from '@/common/utils/httpRequest';
+
 const WalletConnectorDialogNew = ({ showDialog, close }) => {
   const [show, setShow] = useState(false);
 
@@ -20,6 +23,29 @@ const WalletConnectorDialogNew = ({ showDialog, close }) => {
         BSC_TESTNET: 97
     }
 
+      const onLogoutClick = async (e) => {
+    // e.preventDefault();
+    try {
+      const response = await httpRequest.get({
+        url: `/current_user/logout`,
+        token: getCookie('token')
+      });
+
+      async () => {
+                        disconnect()
+                    }
+
+      if (response.data.success) {
+        removeCookie('token');
+        showToast.success('Logout success');
+        router.push('/login');
+      }
+    } catch (error) {
+      console.log(error.response);
+      showToast.error();
+    }
+  };
+
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
@@ -32,7 +58,7 @@ const WalletConnectorDialogNew = ({ showDialog, close }) => {
         </Modal.Header>
         <Modal.Body>
 
-          <p class="text-justify text-center"><label>Address</label><br/> {address} <br/></p>
+          <p className="text-justify text-center"><label>Address</label><br/> {address} <br/></p>
         	
          {chainId === ChainId.BSC_MAINNET ? (
                 <>
@@ -59,7 +85,7 @@ const WalletConnectorDialogNew = ({ showDialog, close }) => {
                 <></>
             )}
 
-            <p class="text-justify text-center"><label>NFT</label><br/></p>
+            <p className="text-justify text-center"><label>NFT</label><br/></p>
         </Modal.Body>
         <Modal.Footer>
         
@@ -73,6 +99,7 @@ const WalletConnectorDialogNew = ({ showDialog, close }) => {
                     onClick={ async () => {
                         disconnect()
                         close()
+                        onLogoutClick()
                     }
                     }>
                     Disconnect Wallet

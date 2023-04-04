@@ -25,15 +25,6 @@ const LoginWalletComponent = () => {
 			password: `${address}@password`
 		};
 
-		setTimeout(() => {
-	    console.log('Hello, World!');
-	    // alert('VIDEO HAS STOPPED');
-	    if(address && inputElement) {
-	    	setStateOfInput(initialValues.user_name);
-	    	// stateOfOutput = initialValues.password;
-				inputElement.current.click()
-	    }
-		}, 3000);
 		
 	const router = useRouter();
 	const [isLoading, setLoading] = useState(false);
@@ -62,7 +53,7 @@ const LoginWalletComponent = () => {
 				router.push('/');
 			}
 		} catch (error) {
-			router.push('/registerFormWeb3');
+			router.push('/register');
 			showToast.error('Login error');
 			if (!error?.response?.data?.success) {
 				setErrors(error.response.data);

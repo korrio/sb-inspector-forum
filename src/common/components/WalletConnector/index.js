@@ -5,6 +5,7 @@ import { useWeb3Context } from '../../context'
 import WalletConnectorDialog from "./WalletConnectorDialog";
 import WalletConnectorDialogNew from "./WalletConnectorDialogNew";
 
+import httpRequest from '@/common/utils/httpRequest';
 import showToast from '@/common/utils/showToast';
 
 const getShortenWalletAddress = (account) => {
@@ -15,7 +16,7 @@ const getShortenWalletAddress = (account) => {
 };
 
 const WalletConnectorButton = () => {
-    const { web3Provider, connect, address } = useWeb3Context()
+    const { web3Provider, connect } = useWeb3Context()
 
     const [showDialog, setShowDialog] = useState(false);
     const [isLoading, setLoading] = useState(false);
@@ -27,29 +28,24 @@ const WalletConnectorButton = () => {
     const open = () => setShowDialog(true);
     const close = () => setShowDialog(false);
 
-    // const web3Login = async () => {
-        
-    //             const user = {
-    //                 user_name: address,
-    //                 password: `${address}@password`
-    //             };
-    //             setUser(user)
+    const [address, setAddress] = useState(null)
 
-    //             await onLogin(user);
-            
-    //     }
+    useEffect(() => {
+      window.ethereum ?
+        ethereum.request({ method: "eth_requestAccounts" }).then((accounts) => {
+          setAddress(accounts[0])
+          console.log("accounts[0]",accounts[0])
 
-    // useEffect(() => {
-    //     if(address) {
-    //         router.push('/');
-    //     }
-    // }, [address])
+          onLogin(accounts[0],`${accounts[0]}@password`)
+        }).catch((err) => console.log(err))
+      : console.log("Please install MetaMask")
+    }, [])
 
-     const onLogin = async (values) => {
+     const onLogin = async (username,password) => {
         try {
             const user = {
-                user_name: values.user_name,
-                password: values.password
+                user_name: username,
+                password: password
             };
             setLoading(true);
             const response = await httpRequest.post({
@@ -62,9 +58,11 @@ const WalletConnectorButton = () => {
                 router.push('/');
             }
         } catch (error) {
-            showToast.error('Login error');
+            // router.push('/register');
+            // showToast.error('Login error');
             if (!error?.response?.data?.success) {
-                console.log("error",error.response)
+                console.log("error",error)
+                // router.push('/register');
                 // setErrors(error.response.data);
             }
         } finally {

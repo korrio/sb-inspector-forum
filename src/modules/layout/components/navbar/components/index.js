@@ -249,18 +249,8 @@ const NavBarComponent = () => {
 											<Nav.Link>Bounty Hunting</Nav.Link>
 										</Link>
 									</Nav.Item>
-							{DropdownLocale()}
-							{user && (
-								<>
-																				
-{/*									<Nav.Item className="d-none d-md-block px-2">
-										<Link href="/new" passHref>
-											<Nav.Link className="btn btn-primary text-white fw-bold">Report Crime</Nav.Link>
-										</Link>
-									</Nav.Item> */}
-									
-								</>
-							)}
+							{/*{DropdownLocale()}*/}
+
 							{!user && (
 								<>
 									<WalletConnectorButton />

@@ -22,7 +22,7 @@ const PostCardComponent = ({ post }) => {
 
 	 const { web3Provider, connect, address } = useWeb3Context()
 
-	console.log("post",post);
+//	console.log("post",post);
 
 	function rand(min, max) { // min and max included 
 	  return Math.floor(Math.random() * (max - min + 1) + min)
@@ -66,14 +66,7 @@ const PostCardComponent = ({ post }) => {
 									className="text-decoration-none d-inline-block d-flex align-items-center"
 								>
 									
-									<span class="badge bg-warning">Data Sales</span>
-{/*<span class="badge badge-secondary">Secondary</span>
-<span class="badge badge-success">Success</span>
-<span class="badge badge-danger">Danger</span>
-<span class="badge badge-warning">Warning</span>
-<span class="badge badge-info">Info</span>
-<span class="badge badge-light">Light</span>
-<span class="badge badge-dark">Dark</span>*/}
+									<span className="badge bg-warning">Data Sales</span>
 								</div>
 							</div>
 						</div>
@@ -86,14 +79,7 @@ const PostCardComponent = ({ post }) => {
 									className="text-decoration-none d-inline-block d-flex align-items-center"
 								>
 									
-									<span class="badge bg-secondary">Knowledge</span>
-{/*<span class="badge badge-secondary">Secondary</span>
-<span class="badge badge-success">Success</span>
-<span class="badge badge-danger">Danger</span>
-<span class="badge badge-warning">Warning</span>
-<span class="badge badge-info">Info</span>
-<span class="badge badge-light">Light</span>
-<span class="badge badge-dark">Dark</span>*/}
+									<span className="badge bg-secondary">Knowledge</span>
 								</div>
 							</div>
 						</div>
@@ -106,14 +92,7 @@ const PostCardComponent = ({ post }) => {
 									className="text-decoration-none d-inline-block d-flex align-items-center"
 								>
 									
-									<span class="badge btn-danger">Crime Report</span>
-{/*<span class="badge badge-secondary">Secondary</span>
-<span class="badge badge-success">Success</span>
-<span class="badge badge-danger">Danger</span>
-<span class="badge badge-warning">Warning</span>
-<span class="badge badge-info">Info</span>
-<span class="badge badge-light">Light</span>
-<span class="badge badge-dark">Dark</span>*/}
+									<span className="badge btn-danger">Crime Report</span>
 								</div>
 							</div>
 						</div>
@@ -126,14 +105,7 @@ const PostCardComponent = ({ post }) => {
 									className="text-decoration-none d-inline-block d-flex align-items-center"
 								>
 									
-									<span class="badge btn-primary">Dispute</span>
-{/*<span class="badge badge-secondary">Secondary</span>
-<span class="badge badge-success">Success</span>
-<span class="badge badge-danger">Danger</span>
-<span class="badge badge-warning">Warning</span>
-<span class="badge badge-info">Info</span>
-<span class="badge badge-light">Light</span>
-<span class="badge badge-dark">Dark</span>*/}
+									<span className="badge btn-primary">Dispute</span>
 								</div>
 							</div>
 						</div>

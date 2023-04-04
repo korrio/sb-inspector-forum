@@ -103,7 +103,7 @@ const SingleUserDashboardComponent = ({ singleUser, listPostUser, listTagUser })
 								{singleUser.data?.total_following_users} <span className="text-secondary">following</span>
 							</div>
 
-					<div class="mb-3">
+					<div className="mb-3">
 					<h4>Top hastags</h4>
 					<UserTagListComponent tags={listTagUser.data} />
 					</div>
