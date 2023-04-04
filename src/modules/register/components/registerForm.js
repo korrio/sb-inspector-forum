@@ -133,7 +133,8 @@ const RegisterFormComponent = () => {
 			if (response.data.success) {
 				setCookie('token', response.data.data.access_token);
 				showToast.success('Login success');
-				router.push('/');
+				// router.push('/');
+				router.push('/tags');
 			}
 		} catch (error) {
 			showToast.error('Login failed');

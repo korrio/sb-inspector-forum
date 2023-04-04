@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { useRouter } from 'next/router';
 
 import { useWeb3Context } from "@/common/context";
 import TokenBalanceChip from "./TokenBalanceChip";
@@ -8,11 +9,16 @@ import TokenBalanceChip from "./TokenBalanceChip";
 import showToast from '@/common/utils/showToast';
 import httpRequest from '@/common/utils/httpRequest';
 
+import { getCookie } from '@/common/utils/session';
+
 const WalletConnectorDialogNew = ({ showDialog, close }) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const handleBuy = () => setShow(true);
+
+  const router = useRouter();
 
       const { disconnect, chainId,address } = useWeb3Context()
     const ChainId = {
@@ -30,10 +36,6 @@ const WalletConnectorDialogNew = ({ showDialog, close }) => {
         url: `/current_user/logout`,
         token: getCookie('token')
       });
-
-      async () => {
-                        disconnect()
-                    }
 
       if (response.data.success) {
         removeCookie('token');
@@ -104,6 +106,9 @@ const WalletConnectorDialogNew = ({ showDialog, close }) => {
                     }>
                     Disconnect Wallet
                 </Button>
+{/*           <Button variant="primary" onClick={handleBuy}>
+            Buy JUTC
+          </Button> */}
         </Modal.Footer>
       </Modal>
     </>

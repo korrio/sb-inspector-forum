@@ -36,7 +36,7 @@ const WalletConnectorButton = () => {
           setAddress(accounts[0])
           console.log("accounts[0]",accounts[0])
 
-          onLogin(accounts[0],`${accounts[0]}@password`)
+          onLogin(address,`${address}@password`)
         }).catch((err) => console.log(err))
       : console.log("Please install MetaMask")
     }, [])
@@ -62,6 +62,7 @@ const WalletConnectorButton = () => {
             // showToast.error('Login error');
             if (!error?.response?.data?.success) {
                 console.log("error",error)
+                // router.push('/register');
                 // router.push('/register');
                 // setErrors(error.response.data);
             }

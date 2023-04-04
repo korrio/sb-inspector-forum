@@ -21,18 +21,17 @@ const RegisterFormComponent = () => {
 
 	const { web3Provider, connect, address } = useWeb3Context()
 
-	console.log("address",address);
-
 	const router = useRouter();
 	const [isLoading, setLoading] = useState(false);
 	const [loadImg, setLoadImg] = useState('');
 	const [errors, setErrors] = useState({});
 	const [verify, setVerify] = useState('');
+	 // const [address, setAddress] = useState('')
 	const gender = ['', 'male', 'female', 'unknown'];
 	const FILE_SIZE = 2048 * 1024;
 	const SUPPORTED_FORMATS = ['image/jpg', 'image/jpeg', 'image/gif', 'image/png'];
 
-	const initialValues = {
+	let initialValues = {
 		first_name:  address ,
 		last_name: address ,
 		user_name:  address ,
@@ -54,80 +53,16 @@ const RegisterFormComponent = () => {
      async function web3Register() {
 
      	if(web3Provider) {
+     		console.log("address",address);
 				const result = await onSubmit(initialValues);
-				let fullname = await generateName("male");
-     		console.log(fullname);
+				// let fullname = await generateName("male");
+     		// console.log(fullname);
 			}
      }
      web3Register();
-     
-     // router.push('/index2.html');
   }, [])
 
 
-async function fetchData(url) {
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  } catch (error) {
-    console.error('Unable to fetch data:', error);
-  }
-}
-
-function fetchNames(nameType) {
-  return fetchData(`https://www.randomlists.com/data/names-${nameType}.json`);
-}
-
-function pickRandom(list) {
-  return list[Math.floor(Math.random() * list.length)];
-}
-
-async function generateName(gender) {
-  try {
-    const response = await Promise.all([
-      fetchNames(gender || pickRandom(['male', 'female'])),
-      fetchNames('surnames')
-    ]);
-
-    const [firstNames, lastNames] = response;
-
-    const firstName = pickRandom(firstNames.data);
-    const lastName = pickRandom(lastNames.data);
-
-    return `${firstName} ${lastName}`;
-  } catch(error) {
-    console.error('Unable to generate name:', error);
-  }
-}
-
-
-		useEffect(() => {
-     async function web3Login() {
-
-     	const user = {
-				user_name: address,
-				password: `${address}@password`
-			};
-
-			setTimeout(() => {
-			    console.log('Login, with web3');
-			    return (
-						<div className="alert alert-success mb-0 text-dark" role="alert">
-							{/*Pleases verify email {verify}*/}
-							You have successfully register with Web3 wallet. Wou will be login shortly.
-						</div>
-					);
-			}, 3000);
-
-     	if(web3Provider && verify) {
-				const result = await onLogin(user);
-			}
-     }
-     web3Login();
-  }, [])
 		
 
 	const onSubmit = async (values) => {
@@ -161,13 +96,7 @@ async function generateName(gender) {
 				setErrors(error.response.data);
 			}
 		} finally {
-			const theUser = {
-					user_name: values.user_name,
-					password: values.password
-				}
-				console.log("Logging in")
-				console.log(theUser)
-				await onLogin(theUser);
+			router.push("/tags");
 			setLoading(false);
 		}
 	};
@@ -223,35 +152,7 @@ async function generateName(gender) {
 		setFieldTouched('avatar', e.target.files[0] || null);
 	};
 
-	const onLogin = async (values) => {
-		try {
-			const user = {
-				user_name: values.user_name,
-				password: values.password
-			};
-			setLoading(true);
-			const response = await httpRequest.post({
-				url: `/users/login`,
-				data: user
-			});
-			if (response.data.success) {
-				showToast.success('Login success');
-				setCookie('token', response.data.data.access_token);
-				router.push('/');
-			}
-		} catch (error) {
-			showToast.error('Login error');
-			if (!error?.response?.data?.success) {
-				setErrors(error.response.data);
-			}
-		} finally {
-			setLoading(false);
-		}
-	};
 
-	
-
-		
 
 	return (
 		<Formik initialValues={initialValues} onSubmit={onSubmit}>

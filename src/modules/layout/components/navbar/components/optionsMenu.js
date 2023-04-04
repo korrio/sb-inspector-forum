@@ -5,7 +5,7 @@ const optionsMenu = [
 	{
 		icon: <FcHome className="h4 mb-0 me-1" />,
 		name: 'Home',
-		href: '/home.html'
+		href: '/'
 	},
 	{
 		icon: <FaTags className="h4 mb-0 me-1" />,
