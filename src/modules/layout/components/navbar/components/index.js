@@ -188,6 +188,9 @@ const NavBarComponent = () => {
 				<Link href="/new" passHref>
 					<Dropdown.Item>New Post</Dropdown.Item>
 				</Link>
+				<Link href="https://upload.socialbureau.io/" passHref target="_blank">
+					<Dropdown.Item>New Files</Dropdown.Item>
+				</Link>
 
 				<Link href="https://mint-jutc.vercel.app/" passHref target="_blank">
 					<Dropdown.Item>Buy JUTC</Dropdown.Item>

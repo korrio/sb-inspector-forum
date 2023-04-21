@@ -4,9 +4,9 @@ import MetaWebsite from '@/common/meta/MetaWebsite';
 import Layout from '@/modules/layout/components';
 import CustomImage from '@/common/components/CustomImage/components';
 
-import Carousel from 'react-bootstrap/Carousel';
+import fs from "fs";
 
-const HomePage = () => {
+const BackgroudCheckV2 = () => {
 
 	const [keyValue, setKeyValue] = useState(0);
 
@@ -29,6 +29,6 @@ const HomePage = () => {
 	);
 };
 
-export default HomePage;
+export default BackgroudCheckV2;
 
 
