@@ -1,6 +1,7 @@
 const { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD } = require('next/constants');
+const withTM = require('next-transpile-modules')(['@pusher/push-notifications-web']);
 
-module.exports = (phase) => {
+const nextConfig = (phase) => {
 	// when started in development mode `next dev` or `npm run dev` regardless of the value of STAGING environmental variable
 	const isDev = phase === PHASE_DEVELOPMENT_SERVER;
 	// when `next build` or `npm run build` is used
@@ -12,6 +13,9 @@ module.exports = (phase) => {
 	console.log('%cINSPECTOR AREA', 'font-size: 4rem; color: red; font-weight: 600;');
 
 	const env = {
+		PUSHER_KEY: process.env.NEXT_PUBLIC_PUSHER_KEY,
+    PUSHER_SECRET: process.env.NEXT_PUBLIC_PUSHER_SECRET,
+    PUSHER_APP_ID: process.env.NEXT_PUBLIC_PUSHER_APP_ID,
 		WEBSITE_URL: (() => {
 			if (isDev) return 'http://localhost:3000';
 			if (isProd) {
@@ -70,3 +74,7 @@ module.exports = (phase) => {
 		}
 	};
 };
+
+console.log("nextConfig:",nextConfig());
+
+module.exports = withTM(nextConfig());

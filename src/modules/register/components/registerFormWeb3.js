@@ -17,145 +17,159 @@ import showToast from '@/common/utils/showToast';
 import WalletConnectorButton from '@/common/components/WalletConnector';
 import { useWeb3Context } from '@/common/context';
 
-const RegisterFormComponent = () => {
+const RegisterFormComponentWeb3 = () => {
 
-	const { web3Provider, connect, address } = useWeb3Context()
+    const { web3Provider, connect, address } = useWeb3Context()
 
-	const router = useRouter();
-	const [isLoading, setLoading] = useState(false);
-	const [loadImg, setLoadImg] = useState('');
-	const [errors, setErrors] = useState({});
-	const [verify, setVerify] = useState('');
-	 // const [address, setAddress] = useState('')
-	const gender = ['', 'male', 'female', 'unknown'];
-	const FILE_SIZE = 2048 * 1024;
-	const SUPPORTED_FORMATS = ['image/jpg', 'image/jpeg', 'image/gif', 'image/png'];
+    const router = useRouter();
+    const [isLoading, setLoading] = useState(false);
+    const [loadImg, setLoadImg] = useState('');
+    const [errors, setErrors] = useState({});
+    const [verify, setVerify] = useState('');
+    // const [address, setAddress] = useState('')
+    const gender = ['', 'male', 'female', 'unknown'];
+    const FILE_SIZE = 2048 * 1024;
+    const SUPPORTED_FORMATS = ['image/jpg', 'image/jpeg', 'image/gif', 'image/png'];
 
-	let initialValues = {
-		first_name:  address ,
-		last_name: address ,
-		user_name:  address ,
-		email: `${address}@ethermail.io`,
-		password: `${address}@password`,
-		password_confirm: `${address}@password`,
-		phone_number: '1234567890',
-		address: address ? address : '',
-		gender: 'unknown',
-		avatar: null,
-		biography: '',
-		agreeterms: false
-	};
+    let initialValues = {
+        first_name: address,
+        last_name: address,
+        user_name: address,
+        email: `${address}@ethermail.io`,
+        password: `${address}@password`,
+        password_confirm: `${address}@password`,
+        phone_number: '1234567890',
+        address: address ? address : '',
+        gender: 'unknown',
+        avatar: null,
+        biography: '',
+        agreeterms: false
+    };
 
-	console.log("initialValues",initialValues);
+    console.log("initialValues", initialValues);
 
-  // const [token, setToken] = useState(null);
-  useEffect(() => {
-     async function web3Register() {
-
-     	if(web3Provider) {
-     		console.log("address",address);
-				const result = await onSubmit(initialValues);
-				// let fullname = await generateName("male");
-     		// console.log(fullname);
-			}
-     }
-     web3Register();
-  }, [])
-
-
-		
-
-	const onSubmit = async (values) => {
-		try {
-			setLoading(true);
-			const response = await httpRequest.upload({
-				url: `/users/register`,
-				data: {
-					first_name: values.first_name,
-					last_name: values.last_name,
-					user_name: values.user_name,
-					email: values.email,
-					password: values.password,
-					phone_number: values.phone_number,
-					address: values.address,
-					gender: values.gender,
-					biography: values.biography
-				},
-				files: {
-					avatar: values.avatar
-				}
-			});
-			if (response.data.success) {
-				setVerify(response.data.data.email);
-				showToast.success('Register success');
-				
-			}
-		} catch (error) {
-			// showToast.error('Register error:' + JSON.stringify(error.response.data));
-			if (!error?.response?.data?.success) {
-				setErrors(error.response.data);
-			}
-		} finally {
-			router.push("/tags");
-			setLoading(false);
-		}
-	};
-
-	const handleSocialLogin = async (res) => {
-		try {
-			const user = {
-				access_token: res._token.accessToken,
-				provider: res._provider
-			};
-			setLoading(true);
-			const response = await httpRequest.post({
-				url: `/users/login`,
-				data: user
-			});
-			if (response.data.success) {
-				setCookie('token', response.data.data.access_token);
-				showToast.success('Login success');
-				router.push('/');
-			}
-		} catch (error) {
-			showToast.error('Login failed');
-		} finally {
-			setLoading(false);
-		}
-	};
-
-	const handleSocialLoginFailure = (error) => {
-		console.error(error);
-		showToast.error();
-	};
-
-	const onChangeAvatar = (e, setFieldValue) => {
-		try {
-			let file = e.target.files[0];
-			let reader = new FileReader();
-			if (file) {
-				reader.onloadend = () => {
-					setLoadImg(reader.result);
-				};
-				reader.readAsDataURL(file);
-				setFieldValue('avatar', file);
-				e.target.value = null;
-				showToast.info(`Load file success "${file.name}"`);
-			}
-		} catch (error) {
-			console.log(error);
-			showToast.error();
-		}
-	};
-
-	const onBlurAvatar = (e, setFieldTouched) => {
-		setFieldTouched('avatar', e.target.files[0] || null);
-	};
+    // const [token, setToken] = useState(null);
+    useEffect(() => {
+        window.ethereum ?
+            ethereum.request({ method: "eth_requestAccounts" }).then((accounts) => {
+                console.log("accounts[0]!!", accounts[0])
+                if (accounts[0]) {
+                		address = accounts[0];
+                		initialValues = {
+        first_name: address,
+        last_name: address,
+        user_name: address,
+        email: `${address}@ethermail.io`,
+        password: `${address}@password`,
+        password_confirm: `${address}@password`,
+        phone_number: '1234567890',
+        address: address ? address : '',
+        gender: 'unknown',
+        avatar: null,
+        biography: '',
+        agreeterms: false
+    };
+                  	onSubmit(initialValues)
+                }
+            }).catch((err) => console.log(err)) :
+            console.log("Please install MetaMask")
+    }, [])
 
 
 
-	return (
-		<Formik initialValues={initialValues} onSubmit={onSubmit}>
+
+    const onSubmit = async (values) => {
+        try {
+            setLoading(true);
+            const response = await httpRequest.upload({
+                url: `/users/register`,
+                data: {
+                    first_name: values.first_name,
+                    last_name: values.last_name,
+                    user_name: values.user_name,
+                    email: values.email,
+                    password: values.password,
+                    phone_number: values.phone_number,
+                    address: values.address,
+                    gender: values.gender,
+                    biography: values.biography
+                },
+                files: {
+                    avatar: values.avatar
+                }
+            });
+            if (response.data.success) {
+                // setVerify(response.data.data.email);
+                showToast.success('Register success');
+                // router.push("/login_wallet");
+
+            }
+        } catch (error) {
+            // showToast.error('Register error:' + JSON.stringify(error.response.data));
+            if (!error?.response?.data?.success) {
+                setErrors(error.response.data);
+            }
+        } finally {
+            
+            setLoading(false);
+        }
+    };
+
+    const handleSocialLogin = async (res) => {
+        try {
+            const user = {
+                access_token: res._token.accessToken,
+                provider: res._provider
+            };
+            setLoading(true);
+            const response = await httpRequest.post({
+                url: `/users/login`,
+                data: user
+            });
+            if (response.data.success) {
+                setCookie('token', response.data.data.access_token);
+                showToast.success('Login success');
+                router.push('/');
+            }
+        } catch (error) {
+            showToast.error('Login failed');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleSocialLoginFailure = (error) => {
+        console.error(error);
+        showToast.error();
+    };
+
+    const onChangeAvatar = (e, setFieldValue) => {
+        try {
+            let file = e.target.files[0];
+            let reader = new FileReader();
+            if (file) {
+                reader.onloadend = () => {
+                    setLoadImg(reader.result);
+                };
+                reader.readAsDataURL(file);
+                setFieldValue('avatar', file);
+                e.target.value = null;
+                showToast.info(`Load file success "${file.name}"`);
+            }
+        } catch (error) {
+            console.log(error);
+            showToast.error();
+        }
+    };
+
+    const onBlurAvatar = (e, setFieldTouched) => {
+        setFieldTouched('avatar', e.target.files[0] || null);
+    };
+
+
+
+    return (
+        <Formik initialValues={initialValues} onSubmit={onSubmit}>
 			{({ setFieldValue, setFieldTouched, errors: error, touched }) => (
 				<Form>
 					<h2 className="text-center mb-3">Register with Web3 Wallet</h2>
@@ -277,7 +291,7 @@ const RegisterFormComponent = () => {
 				</Form>
 			)}
 		</Formik>
-	);
+    );
 };
 
-export default RegisterFormComponent;
+export default RegisterFormComponentWeb3;

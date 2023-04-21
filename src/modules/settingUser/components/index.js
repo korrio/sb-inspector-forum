@@ -32,7 +32,7 @@ const SettingUserComponent = ({ settingUser, pid }) => {
 										href: '/settings/profile'
 									},
 									{
-										title: 'Customization',
+										title: 'Notification',
 										slug: 'customization',
 										href: '/settings/customization'
 									}

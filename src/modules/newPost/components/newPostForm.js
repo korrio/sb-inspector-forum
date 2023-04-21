@@ -29,6 +29,9 @@ const NewPostFormComponent = ({ isPreview }) => {
 		revalidateOnFocus: false
 	});
 
+	const all = listCategory;
+	console.log("listCategory",listCategory);
+
 	const initialValues = {
 		title: '',
 		content: '',
@@ -47,6 +50,7 @@ const NewPostFormComponent = ({ isPreview }) => {
 				(value) => value === null || (value && SUPPORTED_FORMATS.includes(value.type))
 			)
 	});
+	let postUrl = "";
 	const onSubmit = async (values) => {
 		try {
 			setLoading(true);
@@ -64,6 +68,7 @@ const NewPostFormComponent = ({ isPreview }) => {
 				}
 			});
 			if (response.data.success) {
+				postUrl = `https://dev.socialbureau.io/u/${response.data.data.user.user_name}/${response.data.data.slug}`
 				showToast.success('Create post success');
 				router.push(`/u/${response.data.data.user.user_name}/${response.data.data.slug}`);
 			}
@@ -74,6 +79,13 @@ const NewPostFormComponent = ({ isPreview }) => {
 				setErrors(error.response.data);
 			}
 		} finally {
+			const data = {
+          message: `Create post success \n [${listCategory.data[values.category_id].title}] \n ${postUrl}`,
+       };
+            setLoading(true);
+            const response = await httpRequest.notify({
+                data: data
+            });
 			setLoading(false);
 		}
 	};

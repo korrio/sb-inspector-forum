@@ -7,6 +7,7 @@ import WalletConnectorDialogNew from "./WalletConnectorDialogNew";
 
 import httpRequest from '@/common/utils/httpRequest';
 import showToast from '@/common/utils/showToast';
+import { setCookie } from '@/common/utils/session';
 
 const getShortenWalletAddress = (account) => {
   return `${account.slice(0, 4)}....${account.slice(
@@ -33,10 +34,9 @@ const WalletConnectorButton = () => {
     useEffect(() => {
       window.ethereum ?
         ethereum.request({ method: "eth_requestAccounts" }).then((accounts) => {
-          setAddress(accounts[0])
           console.log("accounts[0]",accounts[0])
-
-          onLogin(address,`${address}@password`)
+          if(accounts[0])
+              onLogin(accounts[0],`${accounts[0]}@password`)
         }).catch((err) => console.log(err))
       : console.log("Please install MetaMask")
     }, [])
@@ -58,16 +58,17 @@ const WalletConnectorButton = () => {
                 router.push('/');
             }
         } catch (error) {
-            // router.push('/register');
+//            router.push('/register');
             // showToast.error('Login error');
             if (!error?.response?.data?.success) {
                 console.log("error",error)
                 // router.push('/register');
                 // router.push('/register');
-                // setErrors(error.response.data);
+                setErrors(error.response.data);
             }
         } finally {
             setLoading(false);
+            // router.push('/');
         }
     };
 

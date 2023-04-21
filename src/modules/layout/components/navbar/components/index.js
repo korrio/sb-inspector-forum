@@ -77,17 +77,17 @@ const NavBarComponent = () => {
 			>
 				<FaRegBell className="h3 mb-0" />
 				<span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-					+9 <span className="visually-hidden">unread messages</span>
+					+2 <span className="visually-hidden">unread messages</span>
 				</span>
 			</Dropdown.Toggle>
 			<Dropdown.Menu align="end" className={`p-0 dropdown-menu-end overflow-auto ${style.noti__dropdown__menu}`}>
-				<Link href={`/`} passHref>
+				<Link href={`https://upload.socialbureau.io/download/2a5r`} passHref target="_blank">
 					<Dropdown.Item className="p-3">
 						<div className="d-flex align-items-center">
 							<div className="me-2">
 								<div className="text-decoration-none d-inline-block d-flex align-items-center">
 									<CustomImage
-										src={`${process.env.IMAGES_URL}/6666666666.jpg`}
+										src={`/images/zip-file-format.png`}
 										className="rounded-circle"
 										width={40}
 										height={40}
@@ -98,13 +98,48 @@ const NavBarComponent = () => {
 							</div>
 							<div className="lh-1 text-wrap">
 								<div className="text-decoration-none text-dark">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit
+									<span className="badge bg-warning">Data Sales</span><br/>
+									
+										You have got file to download [2a5r].
+									
 								</div>
-								<span className="text-muted small">{`6 years ago`}</span>
+								<span className="text-muted small">{`1 day ago`}</span>
+								
+								
 							</div>
 						</div>
 					</Dropdown.Item>
-				</Link>
+					</Link>
+					<Dropdown.Divider className="m-0" />
+					<Link href={`https://upload.socialbureau.io/download/qors`} passHref target="_blank">
+									
+				<Dropdown.Item className="p-3">
+						<div className="d-flex align-items-center">
+							<div className="me-2">
+								<div className="text-decoration-none d-inline-block d-flex align-items-center">
+									<CustomImage
+										src={`/images/zip-file-format.png`}
+										className="rounded-circle"
+										width={40}
+										height={40}
+										alt={``}
+										layout="fixed"
+									/>
+								</div>
+							</div>
+							<div className="lh-1 text-wrap">
+								<div className="text-decoration-none text-dark">
+									<span className="badge bg-warning">Data Sales</span><br/>
+										You have got file to download [qors].
+									
+								</div>
+								<span className="text-muted small">{`2 day ago`}</span>
+								
+								
+							</div>
+						</div>
+					</Dropdown.Item>
+					</Link>
 				<Dropdown.Divider className="m-0" />
 				<Link href={`/`} passHref>
 					<Dropdown.Item className="text-center">View all</Dropdown.Item>
@@ -158,13 +193,13 @@ const NavBarComponent = () => {
 					<Dropdown.Item>Buy JUTC</Dropdown.Item>
 				</Link>
 
-				<Link href="https://api-docs.socialbureau.io/" passHref target="_blank">
-					<Dropdown.Item>API docs</Dropdown.Item>
+				<Link href={`/settings/customization/`} passHref target="_blank">
+					<Dropdown.Item>Notifications</Dropdown.Item>
 				</Link>
 
-				
-
-				
+				<Link href="https://api-docs.socialbureau.io/" passHref target="_blank">
+					<Dropdown.Item>API docs</Dropdown.Item>
+				</Link>				
 
 				<Dropdown.Divider className="m-0" />
 				<Dropdown.Item onClick={onLogoutClick}>Logout</Dropdown.Item>
@@ -235,8 +270,8 @@ const NavBarComponent = () => {
 						</Nav>
 						<Nav className="align-items-md-center ms-auto">
 						<Nav.Item className="d-none d-md-block px-2">
-										<Link href="/index2.html" passHref>
-											<Nav.Link>Background Check</Nav.Link>
+										<Link href="/iframe" passHref>
+											<Nav.Link>Background Check V2</Nav.Link>
 										</Link>
 									</Nav.Item>
 									<Nav.Item className="d-none d-md-block px-2">
@@ -305,6 +340,24 @@ const NavBarComponent = () => {
 					<nav className="mb-auto">
 						<ListOptionsMenu />
 					</nav>
+
+					<Nav className="align-items-md-center ms-auto">
+						<Nav.Item className="d-md-block px-2">
+										<Link href="/index2.html" passHref>
+											<Nav.Link>Background Check</Nav.Link>
+										</Link>
+									</Nav.Item>
+									<Nav.Item className="d-md-block px-2">
+										<Link href="/new" passHref>
+											<Nav.Link>Report Crime</Nav.Link>
+										</Link>
+									</Nav.Item>
+									<Nav.Item className="d-md-block px-2">
+										<Link href="/new?bounty=1" passHref>
+											<Nav.Link>Bounty Hunting</Nav.Link>
+										</Link>
+									</Nav.Item>
+									</Nav>
 					{/*{DropdownLocale()} */}
 				</Offcanvas.Body>
 			</Offcanvas>

@@ -99,9 +99,10 @@ const WalletConnectorDialogNew = ({ showDialog, close }) => {
                     className="btn"
                     type="button"
                     onClick={ async () => {
+                      onLogoutClick()
                         disconnect()
                         close()
-                        onLogoutClick()
+                        
                     }
                     }>
                     Disconnect Wallet
