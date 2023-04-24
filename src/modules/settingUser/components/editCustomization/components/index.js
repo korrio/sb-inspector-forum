@@ -95,6 +95,11 @@ const EditCustomizationComponent = ({ props }) => {
 			        <h6>Community Alerts</h6>
 							<hr />
 							<div key={`default-checkbox`} className="mb-3">
+							<Form.Check 
+			            type="switch"
+			            id={`default-checkbox`}
+			            label={`Top posts`}
+			          />
 								<Form.Check 
 			            type="switch"
 			            id={`default-checkbox`}
@@ -113,7 +118,7 @@ const EditCustomizationComponent = ({ props }) => {
 			          <Form.Check 
 			            type="switch"
 			            id={`default-checkbox`}
-			            label={`Upvotes on your posts`}
+			            label={`Votes on your posts`}
 			          />
 			          <Form.Check 
 			            type="switch"
@@ -162,7 +167,7 @@ const EditCustomizationComponent = ({ props }) => {
 			          <Form.Check 
 			            type="switch"
 			            id={`default-checkbox`}
-			            label={`Crime reports`}
+			            label={`Crime Reports`}
 			          />
 			          <Form.Check 
 			            type="switch"
@@ -172,17 +177,17 @@ const EditCustomizationComponent = ({ props }) => {
 			          <Form.Check 
 			            type="switch"
 			            id={`default-checkbox`}
-			            label={`Data sales`}
+			            label={`Background Check`}
 			          />
 			          <Form.Check 
 			            type="switch"
 			            id={`default-checkbox`}
-			            label={`Bounty hunting`}
+			            label={`Bounty Hunting`}
 			          />
 			          <Form.Check 
 			            type="switch"
 			            id={`default-checkbox`}
-			            label={`Article`}
+			            label={`New Post`}
 			          />
 			          
 			        </div>
