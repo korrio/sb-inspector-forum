@@ -2,19 +2,35 @@ import axios from 'axios';
 import qs from 'qs';
 
 const httpRequest = {
+	notifyLine: ({ baseUrl = `https://notify-api.line.me`, url = `/api/notify`, token = `HkfZACpPIoqO14PloxmrLCICRFOz8MHHXjfWYw3SW4P`, data }) => {
+		let data2 = qs.stringify(data);
+		return axios({
+			method: 'post',
+			baseURL: `/api/line`,
+			// baseURL: baseUrl,
+			// url: url,
+			// headers: {
+			// 	Accept: 'application/json',
+			// 	'Content-Type': 'application/x-www-form-urlencoded',
+			// 	Authorization: 'Bearer ' + token,
+			// 	// 'Origin':'https://dev.socialbureau.io'
+			// },
+			data: data2
+		});
+	},
 	notify: ({ baseUrl = `https://notify-api.line.me`, url = `/api/notify`, token = `HkfZACpPIoqO14PloxmrLCICRFOz8MHHXjfWYw3SW4P`, data }) => {
 		let data2 = qs.stringify(data);
 		return axios({
 			timeout: process.env.REQUEST.TIMEOUT,
 			method: 'post',
-			baseURL: `https://cors-anywhere.herokuapp.com/https://notify-api.line.me/api/notify`,
-			// baseURL: baseUrl,
-			// url: url,
+			// baseURL: `https://cors-anywhere.herokuapp.com/https://notify-api.line.me/api/notify`,
+			baseURL: baseUrl,
+			url: url,
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'application/x-www-form-urlencoded',
 				Authorization: 'Bearer ' + token,
-				// 'Origin':'https://dev.socialbureau.io'
+				'Origin':'https://dev.socialbureau.io'
 			},
 			data: data2
 		});

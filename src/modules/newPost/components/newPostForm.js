@@ -81,19 +81,19 @@ const NewPostFormComponent = ({ isPreview }) => {
 			}
 		} finally {
 			let theMessage = ``;
-			if(values.category_id == 0)
-				theMessage = `\n New Post Alert (click the link below to verify): \n   ${postUrl}`
-			else if(values.category_id == 1)
-				theMessage = `\n New Background Check Alert (click the link below to verify): \n  ${postUrl}`
+			if(values.category_id == 1)
+				theMessage = `New Post Alert (click the link below to verify): \n${postUrl}`
 			else if(values.category_id == 2)
-				theMessage = ` \n New Dispute Alert (click the link below to vote): \n   ${postUrl}`
+				theMessage = `New Background Check Alert (click the link below to verify): \n${postUrl}`
 			else if(values.category_id == 3)
-				theMessage = ` \n New Bounty Alert (click the link below to complete the task): \n   ${postUrl}`
+				theMessage = `New Dispute Alert (click the link below to vote): \n${postUrl}`
+			else if(values.category_id == 4)
+				theMessage = `New Bounty Alert (click the link below to complete the task): \n${postUrl}`
 			const data = {
 	          message: theMessage,
-	       };
+	        };
             setLoading(true);
-            const response = await httpRequest.notify({
+            const response = await httpRequest.notifyLine({
                 data: data
             });
 			setLoading(false);
