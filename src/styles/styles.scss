@@ -22,6 +22,10 @@ body {
 	padding-top: $height-navbar;
 }
 
+.rnf-notification-icon-button svg {
+	fill:white !important;
+}
+
 .dropdown-item {
 	&:hover,
 	&:focus,

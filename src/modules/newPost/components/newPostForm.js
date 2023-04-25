@@ -70,7 +70,8 @@ const NewPostFormComponent = ({ isPreview }) => {
 			if (response.data.success) {
 				postUrl = `https://dev.socialbureau.io/u/${response.data.data.user.user_name}/${response.data.data.slug}`
 				showToast.success('Create post success');
-				router.push(`/u/${response.data.data.user.user_name}/${response.data.data.slug}`);
+				// router.push(`/u/${response.data.data.user.user_name}/${response.data.data.slug}`);
+				
 			}
 		} catch (error) {
 			console.log(error);
@@ -79,9 +80,18 @@ const NewPostFormComponent = ({ isPreview }) => {
 				setErrors(error.response.data);
 			}
 		} finally {
+			let theMessage = ``;
+			if(values.category_id == 0)
+				theMessage = `\n New Post Alert (click the link below to verify): \n   ${postUrl}`
+			else if(values.category_id == 1)
+				theMessage = `\n New Background Check Alert (click the link below to verify): \n  ${postUrl}`
+			else if(values.category_id == 2)
+				theMessage = ` \n New Dispute Alert (click the link below to vote): \n   ${postUrl}`
+			else if(values.category_id == 3)
+				theMessage = ` \n New Bounty Alert (click the link below to complete the task): \n   ${postUrl}`
 			const data = {
-          message: `Create post success \n [${listCategory.data[values.category_id].title}] \n ${postUrl}`,
-       };
+	          message: theMessage,
+	       };
             setLoading(true);
             const response = await httpRequest.notify({
                 data: data

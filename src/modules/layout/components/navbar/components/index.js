@@ -21,8 +21,28 @@ import style from '@/modules/layout/components/navbar/styles/style.module.scss';
 import WalletConnectorButton from '@/common/components/WalletConnector';
 import { useWeb3Context } from '@/common/context';
 
+import { KnockFeedProvider } from "@knocklabs/react-notification-feed";
+import useIdentify from "@/common/hooks/useIdentify";
+import NotificationFeed from "@/common/components/Notification/components/NotificationFeed";
+
+import '@/common/components/Notification/styles/style.module.css';
+
+const Tenants = {
+  TeamA: "team-a",
+  TeamB: "team-b",
+};
+
+const TenantLabels = {
+  [Tenants.TeamA]: "Team A",
+  [Tenants.TeamB]: "Team B",
+};
+
 
 const NavBarComponent = () => {
+
+	const { userId, isLoading } = useIdentify();
+  const [tenant, setTenant] = useState(Tenants.TeamA);
+
 	const { web3Provider, connect, address,disconnect, chainId } = useWeb3Context()
 	const router = useRouter();
 	const { user } = useUser();
@@ -245,7 +265,15 @@ const NavBarComponent = () => {
 					</Link>
 					{user && (
 						<div className="d-flex align-items-center order-md-2">
-							{DropdownMenuNoti('')}
+							{/*{DropdownMenuNoti('')}*/}
+							<KnockFeedProvider
+						      userId={userId}
+						      apiKey={process.env.NEXT_PUBLIC_KNOCK_PUBLIC_API_KEY}
+						      feedId={process.env.NEXT_PUBLIC_KNOCK_FEED_CHANNEL_ID}
+						      tenant={tenant}
+						    >
+								<NotificationFeed colorMode="dark" />
+							</KnockFeedProvider>
 							{DropdownMenuUser('')}
 							<div className='.d-sm-none .d-md-block 	.d-none .d-sm-block mr-2'><WalletConnectorButton /></div>
 						</div>

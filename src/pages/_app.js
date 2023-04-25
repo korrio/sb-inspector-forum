@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { ChakraProvider } from "@chakra-ui/react";
+import { KnockFeedProvider } from "@knocklabs/react-notification-feed";
 import '@/styles/globals.scss';
 import '@/styles/github-markdown.css';
 import 'nprogress/nprogress.css';
@@ -16,13 +19,14 @@ import { removeCookie } from '@/common/utils/session';
 import showToast from '@/common/utils/showToast';
 import { Toaster } from 'react-hot-toast'
 
+import "@knocklabs/react-notification-feed/dist/index.css";
+import useIdentify from "@/common/hooks/useIdentify";
 
 // const DynamicComponentWithNoSSR = dynamic(
 //   () => import('package'),
 //   { ssr: false }
 // )
-
-import * as PusherPushNotifications from "@pusher/push-notifications-web";
+// import * as PusherPushNotifications from "@pusher/push-notifications-web";
 
 // window.navigator.serviceWorker.ready.then((serviceWorkerRegistration) => {
 //   console.log(serviceWorkerRegistration);
@@ -48,6 +52,16 @@ import * as PusherPushNotifications from "@pusher/push-notifications-web";
 // 	"@pusher/push-notifications-web",
 // ]); // pass the modules you would like to see transpiled
 
+const Tenants = {
+  TeamA: "team-a",
+  TeamB: "team-b",
+};
+
+const TenantLabels = {
+  [Tenants.TeamA]: "Team A",
+  [Tenants.TeamB]: "Team B",
+};
+
 const TopProgressBar = dynamic(
 	() => {
 		return import('@/common/utils/topProgressBar');
@@ -60,34 +74,8 @@ console.log('%cINSPECTOR AREA', 'font-size: 4rem; color: red; font-weight: 600;'
 const App = ({ Component, pageProps }) => {
 	const router = useRouter();
 
-	useEffect(() => {
-    if("serviceWorker" in navigator) {
-      window.addEventListener("load", function () {
-       navigator.serviceWorker.register("/service-worker.js").then(
-          function (registration) {
-            console.log("Service Worker registration successful with scope: ", registration.scope);
-
-          },
-          function (err) {
-            console.log("Service Worker registration failed: ", err);
-          }
-        );
-      });
-      const beamsClient = new PusherPushNotifications.Client({
-					    instanceId: '0298cec6-96bf-449e-b4ac-f141518e5023',
-					  });
-					  console.log("??")
-
-					  beamsClient.start()
-					    .then(() => beamsClient.addDeviceInterest('hello'))
-					    .then(() => console.log('Successfully registered and subscribed to hello!'))
-					    .catch(console.error);
-
-					  console.log("????")
-    }
-  }, [])
-
-
+	const { userId, isLoading } = useIdentify();
+  const [tenant, setTenant] = useState(Tenants.TeamA);
 
 	return (
 		<Web3ContextProvider>
@@ -115,7 +103,11 @@ const App = ({ Component, pageProps }) => {
 					shouldRetryOnError: false
 				}}
 			>
-				<Component {...pageProps} key={router.asPath} />
+				<ChakraProvider>
+
+						<Component {...pageProps} key={router.asPath} />
+					
+				</ChakraProvider>
 				<ToastContainer
 					position="bottom-right"
 					autoClose={5000}
